@@ -5,10 +5,10 @@ body {
   color: #e2e8f0;
 }
 .header {
-    border-bottom: 2px solid rgba(30, 41, 59, 1);
+    border-bottom: 2px solid rgba(30, 41, 59);
 }
 
 .chart-box {
-      background: rgba(30, 41, 59, 0.8);
-      border: 2px solid rgba(30, 41, 59, 1);
+      background: rgba(30, 41, 59);
+      border: 2px solid rgb(22, 30, 43);
 }

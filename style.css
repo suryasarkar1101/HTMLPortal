@@ -1,6 +1,5 @@
-
 .container {
-  padding: 20px;
+    padding: 20px;
 }
 
 /* Header */
@@ -12,152 +11,165 @@
     padding-top: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.title{
+
+.title {
     font-size: 30px;
     margin-bottom: 5px;
     font-weight: 600;
 }
-.sub-title{
+
+.sub-title {
     font-size: 16px;
     color: #e6e9ee;
     margin-left: 5px;
 }
+
 .time-details {
     text-align: right;
     font-size: 14px;
     font-weight: 300;
 }
+
 .single-details span {
     font-weight: 600;
     margin-left: 5px;
 }
 
 .badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+
 }
 
 .badge.success {
-  background: #064e3b;
-  color: #22c55e;
+    background: #064e3b;
+    color: #22c55e;
 }
 
 /* Cards */
 .cards {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .card {
-  flex: 1;
-  padding: 20px;
-  border-radius: 12px;
-  background: #1e293b;
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    background: #1e293b;
 }
 
 .card.green {
-  border-left: 4px solid #22c55e;
+    border-left: 4px solid #22c55e;
 }
 
 .card.red {
-  border-left: 4px solid #ef4444;
+    border-left: 4px solid #ef4444;
 }
 
 .card.gray {
-  border-left: 4px solid #64748b;
+    border-left: 4px solid #64748b;
 }
 
 .card.blue {
-  border-left: 4px solid #3b82f6;
+    border-left: 4px solid #3b82f6;
 }
 
 /* Charts */
 .charts {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .chart-box {
     flex: 1;
     padding: 20px;
     border-radius: 12px;
-    min-height: 120px;
+    min-height: 200px;
 }
-.chart-title{
+
+.chart-title {
     font-size: 19px;
-    margin-bottom: 15px;
-    font-weight: 600;    
+    margin-bottom: 25px;
+    font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.chart-title i {
+    margin-right: 8px;
+}
+
 /*Environment Details */
 .env-box {
-  padding: 20px;
-  border-radius: 12px;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 450px;
 }
 
 .env-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .label {
-  width: 120px;
-  color: #94a3b8;
+    width: 120px;
+    color: #94a3b8;
 }
 
 .icon {
-  width: 20px;
-  text-align: center;
-  font-size: 18px;
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
 }
 
 /* Colors for icons */
 .chrome {
-  color: #22c55e;
+    color: #22c55e;
 }
 
 .windows {
-  color: #3b82f6;
+    color: #3b82f6;
 }
 
 .env {
-  color: #facc15;
+    color: #facc15;
 }
 
 .link {
-  color: #38bdf8;
+    color: #38bdf8;
 }
 
 .framework {
-  color: #a78bfa;
+    color: #a78bfa;
 }
 
 /* Table */
 .table-section {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #334155;
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #334155;
 }
 
 .success {
-  color: #22c55e;
+    color: #22c55e;
 }
 
 .fail {
-  color: #ef4444;
+    color: #ef4444;
 }
