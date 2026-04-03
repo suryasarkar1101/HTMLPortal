@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTMLPortal Home</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.95rem 1.5rem;
+      font-size: 1rem;
+      border: 2px solid #0077cc;
+      border-radius: 8px;
+      color: #ffffff;
+      background: #0077cc;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-btn:hover,
+    .nav-btn:focus {
+      background: #005fa3;
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .headline {
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+      color: #015a8a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="headline">Select a theme folder</h1>
+    <a class="nav-btn" href="Black/index.html" target="_self">Open Black</a>
+    <a class="nav-btn" href="Blue/index.html" target="_self">Open Blue</a>
+  </div>
+</body>
+</html>
