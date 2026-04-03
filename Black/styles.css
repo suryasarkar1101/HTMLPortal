@@ -1,6 +1,14 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: rgba(13, 13, 13);
+  background: rgba(13, 13, 13, 0.8);
   color: #e2e8f0;
 }
+.header {
+    border-bottom: 2px solid rgba(21, 22, 24, 1);
+}
+.chart-box {
+      background: rgba(20, 21, 23, 0.6);
+      border: 2px solid rgba(20, 21, 23, 1);
+}
+
