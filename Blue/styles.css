@@ -4,11 +4,12 @@ body {
   background: rgba(15, 23, 42, 1);
   color: #e2e8f0;
 }
+
 .header {
-    border-bottom: 2px solid rgba(30, 41, 59);
+  border-bottom: 2px solid rgba(30, 41, 59);
 }
 
 .chart-box {
-      background: rgba(30, 41, 59);
-      border: 2px solid rgb(22, 30, 43);
+  background: rgba(30, 41, 59);
+  border: 2px solid rgb(22, 30, 43);
 }

@@ -1,14 +1,15 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: rgba(14, 14, 14);
-  color: #e2e8f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: rgba(14, 14, 14);
+      color: #e2e8f0;
 }
+
 .header {
       border-bottom: 2px solid rgb(25, 26, 30);
 }
+
 .chart-box {
       background: rgba(20, 21, 23);
       border: 2px solid rgb(25, 26, 30);
 }
-
