@@ -5,13 +5,13 @@
 
 /* Header */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 25px;
-  padding-top: 5px;
-  border-bottom: 2px solid #1e293b;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    padding-top: 5px;
+    border-bottom: 2px solid #1e293b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .title{
     font-size: 30px;
@@ -21,12 +21,23 @@
 .sub-title{
     font-size: 16px;
     color: #e6e9ee;
+    margin-left: 5px;
+}
+.time-details {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 300;
+}
+.single-details span {
+    font-weight: 500;
+    margin-left: 5px;
 }
 
 .badge {
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 12px;
+  
 }
 
 .badge.success {
