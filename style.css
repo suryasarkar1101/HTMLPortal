@@ -115,6 +115,7 @@
     gap: 10px;
     margin-bottom: 15px;
     margin-top: 15px;
+    font-size: 15px;
 }
 
 .label {
@@ -122,30 +123,30 @@
     color: #94a3b8;
 }
 
-.icon {
+.env-row i {
     width: 20px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Colors for icons */
-.chrome {
+.chrome i {
     color: #22c55e;
 }
 
-.windows {
+.windows i {
     color: #3b82f6;
 }
 
-.env {
+.screen i {
     color: #facc15;
 }
 
-.link {
+.link i {
     color: #38bdf8;
 }
 
-.framework {
+.framework i {
     color: #a78bfa;
 }
 
