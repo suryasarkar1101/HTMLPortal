@@ -5,7 +5,7 @@ body {
   color: #e2e8f0;
 }
 .header {
-      border: 2px solid rgb(25, 26, 30);
+      border-bottom: 2px solid rgb(25, 26, 30);
 }
 .chart-box {
       background: rgba(20, 21, 23);

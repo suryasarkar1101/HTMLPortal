@@ -28,26 +28,67 @@
 
     <!-- Summary Cards -->
     <div class="cards">
-      <div class="card green">
-        <h3>Total Tests</h3>
-        <h2>15</h2>
+
+      <!-- Total -->
+      <div class="stat-card green">
+        <div class="icon-box">
+          <i class="fas fa-check"></i>
+        </div>
+        <div>
+          <p class="title">TOTAL TESTS</p>
+          <h2>15</h2>
+          <span>Executed</span>
+        </div>
       </div>
-      <div class="card green">
-        <h3>Passed</h3>
-        <h2>12</h2>
+
+      <!-- Passed -->
+      <div class="stat-card green">
+        <div class="icon-box outline">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div>
+          <p class="title">PASSED</p>
+          <h2>12</h2>
+          <span>80.0% Success Rate</span>
+        </div>
       </div>
-      <div class="card red">
-        <h3>Failed</h3>
-        <h2>2</h2>
+
+      <!-- Failed -->
+      <div class="stat-card red">
+        <div class="icon-box outline">
+          <i class="fas fa-times-circle"></i>
+        </div>
+        <div>
+          <p class="title">FAILED</p>
+          <h2>2</h2>
+          <span>13.3% Failure Rate</span>
+        </div>
       </div>
-      <div class="card gray">
-        <h3>Skipped</h3>
-        <h2>1</h2>
+
+      <!-- Skipped -->
+      <div class="stat-card gray">
+        <div class="icon-box outline">
+          <i class="fas fa-forward"></i>
+        </div>
+        <div>
+          <p class="title">SKIPPED</p>
+          <h2>1</h2>
+          <span>6.7% Skipped</span>
+        </div>
       </div>
-      <div class="card blue">
-        <h3>Duration</h3>
-        <h2>12m 34s</h2>
+
+      <!-- Duration -->
+      <div class="stat-card blue">
+        <div class="icon-box outline">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div>
+          <p class="title">DURATION</p>
+          <h2>12m 34s</h2>
+          <span>Total Execution Time</span>
+        </div>
       </div>
+
     </div>
 
     <!-- Charts Section -->
@@ -58,32 +99,32 @@
       </div>
       <div class="chart-box env-box">
 
-        <div class="chart-title"><i class="fas fa-desktop"></i> Environment Details</div>
-        <div class="env-row">
+        <div class="chart-title"><i class="fa-solid fa-tv"></i> Environment Information</div>
+        <div class="env-row chrome">
           <i class="fa-brands fa-chrome"></i>
           <span class="label">Browser:</span>
           <span>Chrome 123.0.6312.86</span>
         </div>
 
-        <div class="env-row">
+        <div class="env-row windows">
           <i class="fa-brands fa-windows"></i>
           <span class="label">OS:</span>
           <span>Windows 11 (x64)</span>
         </div>
 
-        <div class="env-row">
+        <div class="env-row screen">
           <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-          <span class="label">Screen Size:</span>
+          <span class="label">Screen Resolution:</span>
           <span>1920x1080</span>
         </div>
 
-        <div class="env-row">
+        <div class="env-row link">
           <i class="fa-solid fa-link"></i>
           <span class="label">Base URL:</span>
           <span>https://demo.saucedemo.com</span>
         </div>
 
-        <div class="env-row">
+        <div class="env-row framework">
           <i class="fa-solid fa-screwdriver-wrench"></i>
           <span class="label">Framework:</span>
           <span>Selenium 4.18.1 | C# .NET 8.0</span>
