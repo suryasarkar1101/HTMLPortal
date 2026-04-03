@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Selenium Report</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <div>
+      <h1>Custom Selenium Test Report</h1>
+      <p>Automated Test Execution Results</p>
+    </div>
+    <div class="status">
+      <p>Execution Date: Apr 24, 2024</p>
+      <span class="badge success">COMPLETED</span>
+    </div>
+  </header>
+
+  <!-- Summary Cards -->
+  <div class="cards">
+    <div class="card green">
+      <h3>Total Tests</h3>
+      <h2>15</h2>
+    </div>
+    <div class="card green">
+      <h3>Passed</h3>
+      <h2>12</h2>
+    </div>
+    <div class="card red">
+      <h3>Failed</h3>
+      <h2>2</h2>
+    </div>
+    <div class="card gray">
+      <h3>Skipped</h3>
+      <h2>1</h2>
+    </div>
+    <div class="card blue">
+      <h3>Duration</h3>
+      <h2>12m 34s</h2>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts">
+    <div class="chart-box">
+      <h3>Execution Summary</h3>
+      <div class="circle-chart"></div>
+    </div>
+
+    <div class="chart-box">
+      <h3>Test Execution Trend</h3>
+      <div class="line-chart"></div>
+    </div>
+
+    <div class="chart-box">
+      <h3>Environment</h3>
+      <ul>
+        <li>Browser: Chrome</li>
+        <li>OS: Windows 11</li>
+        <li>Framework: Selenium + C#</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-section">
+    <h3>Test Cases</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Test Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Login Test</td>
+          <td>Valid login</td>
+          <td class="success">PASSED</td>
+          <td>45s</td>
+        </tr>
+
+        <tr>
+          <td>Add to Cart</td>
+          <td>Add items</td>
+          <td class="success">PASSED</td>
+          <td>1m 20s</td>
+        </tr>
+
+        <tr>
+          <td>Checkout</td>
+          <td>Validation error</td>
+          <td class="fail">FAILED</td>
+          <td>55s</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>
