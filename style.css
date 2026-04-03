@@ -64,17 +64,16 @@
     gap: 15px;
     padding: 20px;
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .stat-card i {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 /* ICON BOX */
 .icon-box {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -91,6 +90,7 @@
     font-size: 14px;
     color: #94a3b8;
     margin-bottom: 5px;
+    margin-top: 3px;
 }
 
 .card-value {
@@ -133,10 +133,16 @@
 }
 /* RED */
 .red {
-  background: linear-gradient(135deg, #3b0a0a, #7f1d1d); /* lighter than before */
+  background: linear-gradient(135deg, #3f0d0d, #991b1b);
+  border: 1px solid rgba(248, 113, 113, 0.2);
 }
+
+.red .icon-box {
+  background: rgba(248, 113, 113, 0.12);
+}
+
 .red .icon-box i {
-  color: #f87171; /* softer red */
+  color: #f87171;
 }
 
 /* YELLOW  */
@@ -152,6 +158,19 @@
 }
 .purple .icon-box i {
   color: #a78bfa;
+}
+/* Teal */
+.teal {
+  background: linear-gradient(135deg, #022c22, #134e4a);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.teal .icon-box {
+  background: rgba(20, 184, 166, 0.15);
+}
+
+.teal .icon-box i {
+  color: #2dd4bf;
 }
 
 /* Charts */
@@ -196,7 +215,7 @@
 }
 
 .label {
-    width: 120px;
+    width: 140px;
     color: #94a3b8;
 }
 
