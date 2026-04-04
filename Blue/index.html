@@ -21,13 +21,26 @@
       </div>
       <div class="time-details">
         <div class="single-details">Date : <span>Apr 3, 2026 10:35 AM</span></div>
-        <div class="single-details">Duration : <span>12m 34s</span></div>
+        <div class="single-details">Job Number : <span>53</span></div>
+        <div class="single-details">Job Duration : <span>12m 34s</span></div>
         <div class="single-details">Version : <span>1.0.0</span></div>
       </div>
     </header>
 
     <!-- Summary Cards -->
     <div class="cards">
+
+      <!-- Total DB -->
+      <div class="stat-card gray">
+        <div class="icon-box outline">
+          <i class="fa-solid fa-chart-diagram"></i>
+        </div>
+        <div>
+          <div class="card-title">TOTAL Module</div>
+          <div class="card-value">2</div>
+          <span class="card-sub-title">Executed</span>
+        </div>
+      </div>
 
       <!-- Total -->
       <div class="stat-card teal">
@@ -68,7 +81,7 @@
       <!-- Skipped -->
       <div class="stat-card yellow">
         <div class="icon-box outline">
-         <i class="fa-solid fa-forward"></i>
+          <i class="fa-solid fa-forward"></i>
         </div>
         <div>
           <div class="card-title">SKIPPED</div>
@@ -80,7 +93,7 @@
       <!-- Duration -->
       <div class="stat-card blue">
         <div class="icon-box outline">
-         <i class="fa-regular fa-clock"></i>
+          <i class="fa-regular fa-clock"></i>
         </div>
         <div>
           <div class="card-title">DURATION</div>
@@ -96,13 +109,44 @@
 
       <div class="chart-box">
         <div class="chart-title"><i class="fa-duotone fa-solid fa-chart-pie"></i> Execution Summary</div>
-        
+        <div class="chart-card">
+          <div class="chart-card-left">
+            <div class="chart-card-container">
+              <div class="donut-chart">
+                <div class="chart-card-center-text">10</div>
+              </div>
+
+              <div class="chart-card-legend">
+                <div><span class="chart-card-dot passed"></span> 7 Passed</div>
+                <div><span class="chart-card-dot failed"></span> 2 Failed</div>
+                <div><span class="chart-card-dot skipped"></span> 1 Skipped</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card-right">
+            <div class="chart-card-metric">
+              <div class="chart-card-label">Total Duration</div>
+              <div class="chart-card-value">00:05:27</div>
+            </div>
+
+            <div class="chart-card-metric">
+              <div class="chart-card-label">Avg. per Test</div>
+              <div class="chart-card-value">00:00:32</div>
+            </div>
+
+            <div class="chart-card-metric">
+              <div class="chart-card-label">Success Rate</div>
+              <div class="chart-card-value highlight">80%</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="chart-box env-box">
 
         <div class="chart-title"><i class="fa-solid fa-tv"></i> Environment Information</div>
         <div class="env-row chrome">
-          <i class="fa-brands fa-chrome"></i>
+          <i class="fa-solid fa-earth-asia"></i>
           <span class="label">Browser:</span>
           <span>Chrome 123.0.6312.86</span>
         </div>
