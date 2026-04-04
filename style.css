@@ -209,6 +209,8 @@
     padding: 20px 30px;
     border-radius: 12px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Left Side */
@@ -239,15 +241,15 @@
 
 .donut-chart::before {
     content: "";
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
     position: absolute;
 }
 
 .chart-card-center-text {
     position: absolute;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -290,6 +292,8 @@
 
 .chart-card-metric {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .chart-card-label {
@@ -304,9 +308,9 @@
 }
 
 .chart-card-metric i {
-    font-size: 18px;
+    font-size: 23px;
     color: #9ca3af;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 /*Environment Details */
@@ -360,6 +364,10 @@
 /* Table */
 .table-section {
     margin-top: 20px;
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 200px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
