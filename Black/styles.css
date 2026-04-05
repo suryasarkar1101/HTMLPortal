@@ -32,11 +32,11 @@ body {
 
 th,
 td {
-  border-bottom-color: rgb(25, 26, 30);
+      border-bottom: 1px solid rgb(25, 26, 30);
 }
 
 tbody tr:hover {
-    background: rgba(14, 14, 14);
+      background: rgba(14, 14, 14);
 }
 
 ::-webkit-scrollbar {
