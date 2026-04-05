@@ -1,8 +1,5 @@
 body {
-      margin: 0;
-      font-family: Arial, sans-serif;
       background: rgba(14, 14, 14);
-      color: #e2e8f0;
 }
 
 .header {
@@ -12,6 +9,36 @@ body {
 .chart-box {
       background: rgba(20, 21, 23);
       border: 2px solid rgb(25, 26, 30);
+}
+
+.donut-chart::before {
+      background: rgba(20, 21, 23);
+}
+
+.table-section {
+      background: rgba(20, 21, 23);
+}
+
+.tabledata-search-box {
+      background: rgba(20, 21, 23);
+}
+
+.tabledata-actions select {
+      background: rgba(20, 21, 23);
+}
+
+th,
+td {
+      border-bottom: 2px solid rgb(25, 26, 30);
+}
+
+tbody tr:hover {
+      background: rgba(14, 14, 14);
+      cursor: pointer;
+}
+
+.tabledata-header {
+      border-bottom: 3px solid rgb(25, 26, 30);
 }
 
 ::-webkit-scrollbar {
