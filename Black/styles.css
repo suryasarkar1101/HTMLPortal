@@ -22,6 +22,23 @@ body {
       background: rgba(20, 21, 23);
 }
 
+.tabledata-search-box {
+      background: rgba(20, 21, 23);
+}
+
+.tabledata-actions select {
+      background: rgba(20, 21, 23);
+}
+
+th,
+td {
+  border-bottom-color: rgb(25, 26, 30);
+}
+
+tbody tr:hover {
+    background: rgba(14, 14, 14);
+}
+
 ::-webkit-scrollbar {
       width: 10px;
 }

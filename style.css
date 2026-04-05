@@ -194,9 +194,10 @@
 
 .chart-title {
     font-size: 19px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-block;
 }
 
 .chart-title i {
@@ -225,8 +226,8 @@
 
 /* Donut Chart */
 .donut-chart {
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
     background: conic-gradient(#22c55e 0% 70%,
             #ef4444 70% 90%,
@@ -241,21 +242,21 @@
 
 .donut-chart::before {
     content: "";
-    width: 135px;
-    height: 135px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     position: absolute;
 }
 
 .chart-card-center-text {
     position: absolute;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 /* Legend */
 .chart-card-legend {
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .chart-card-legend div {
@@ -310,7 +311,7 @@
 .chart-card-metric i {
     font-size: 23px;
     color: #9ca3af;
-    margin-right: 10px;
+    margin-right: 18px;
 }
 
 /*Environment Details */
@@ -371,33 +372,48 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.header {
+.tabledata-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.actions {
+.tabledata-actions {
     display: flex;
     gap: 10px;
 }
+.tabledata-search-box {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    gap: 8px;
+}
 
-select {
-    background: #1f2937;
+.tabledata-search-box i {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.tabledata-search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 14px;
+    width: 150px;
+}
+
+.tabledata-search-box:focus-within {
+    border: 1px solid #2563eb;
+}
+
+.tabledata-actions select {
     border: none;
     color: white;
     padding: 6px 10px;
     border-radius: 6px;
-}
-
-.export-btn {
-    background: #2563eb;
-    border: none;
-    padding: 6px 12px;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
 }
 
 /* Table */
@@ -415,18 +431,7 @@ thead {
 th,
 td {
     padding: 14px;
-    border-bottom: 1px solid #1f2937;
-}
-
-/* Row Hover */
-tbody tr:hover {
-    background: #1f2937;
-}
-
-/* Sub text */
-.sub {
-    font-size: 12px;
-    color: #9ca3af;
+    border-bottom: 1px solid;
 }
 
 /* Icons */
@@ -455,10 +460,5 @@ tbody tr:hover {
 
 .fail {
     background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
-}
-
-/* Error text */
-.error {
     color: #ef4444;
 }
