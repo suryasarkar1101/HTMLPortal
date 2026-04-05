@@ -1,8 +1,5 @@
 body {
-      margin: 0;
-      font-family: Arial, sans-serif;
       background: rgba(14, 14, 14);
-      color: #e2e8f0;
 }
 
 .header {
@@ -32,11 +29,16 @@ body {
 
 th,
 td {
-      border-bottom: 1px solid rgb(25, 26, 30);
+      border-bottom: 2px solid rgb(25, 26, 30);
 }
 
 tbody tr:hover {
       background: rgba(14, 14, 14);
+      cursor: pointer;
+}
+
+.tabledata-header {
+      border-bottom: 3px solid rgb(25, 26, 30);
 }
 
 ::-webkit-scrollbar {

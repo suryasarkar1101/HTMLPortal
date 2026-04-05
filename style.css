@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #e2e8f0;
+}
+
 .container {
     padding: 20px;
 }
@@ -376,8 +382,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
+
 .tabledata-title {
     font-size: 19px;
     font-weight: 600;
@@ -388,10 +395,12 @@
 .tabledata-title i {
     margin-right: 8px;
 }
+
 .tabledata-actions {
     display: flex;
     gap: 10px;
 }
+
 .tabledata-search-box {
     display: flex;
     align-items: center;
@@ -432,7 +441,8 @@ thead {
     color: #9ca3af;
     font-size: 14px;
 }
-tbody{
+
+tbody {
     font-size: 14px;
 }
 
