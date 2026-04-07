@@ -1,0 +1,62 @@
+/* ── Black / Dark Theme ─────────────────────────────────────────── */
+body {
+  background: rgba(14, 14, 14);
+  color: #e2e8f0;
+}
+
+.header {
+  border-bottom: 2px solid rgb(25, 26, 30);
+}
+
+.chart-box {
+  background: rgba(20, 21, 23);
+  border: 2px solid rgb(25, 26, 30);
+}
+
+.donut-chart::before {
+  background: rgba(20, 21, 23);
+}
+
+.table-section {
+  background: rgba(20, 21, 23);
+  border: 2px solid rgb(25, 26, 30);
+  color: #e2e8f0;
+}
+
+.tabledata-search-box {
+  background: rgba(30, 31, 35);
+  border: 1px solid rgb(40, 41, 46);
+}
+
+.tabledata-actions select {
+  background: rgba(30, 31, 35);
+  border: 1px solid rgb(40, 41, 46);
+  color: #e2e8f0;
+}
+
+th,
+td {
+  border-bottom: 2px solid rgb(25, 26, 30);
+}
+
+tbody tr:hover {
+  background: rgba(14, 14, 14);
+  cursor: pointer;
+}
+
+.tabledata-header {
+  border-bottom: 3px solid rgb(25, 26, 30);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1f2937, #374151);
+  border-radius: 10px;
+  border: 2px solid #0a0a0a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #374151, #4b5563);
+}
+* { scrollbar-width: thin; scrollbar-color: #374151 #0a0a0a; }

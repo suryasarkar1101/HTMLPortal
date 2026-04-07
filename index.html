@@ -1,59 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTMLPortal Home</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    }
-
-    .container {
-      text-align: center;
-    }
-
-    .nav-btn {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.95rem 1.5rem;
-      font-size: 1rem;
-      border: 2px solid #0077cc;
-      border-radius: 8px;
-      color: #ffffff;
-      background: #0077cc;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.16);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .nav-btn:hover,
-    .nav-btn:focus {
-      background: #005fa3;
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    .headline {
-      margin-bottom: 1.25rem;
-      font-size: 1.5rem;
-      color: #015a8a;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Selenium Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes/black.css" id="theme-style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
+
   <div class="container">
-    <h1 class="headline">Select a theme folder</h1>
-    <a class="nav-btn" href="Black/index.html" target="_self">Open Black</a>
-    <a class="nav-btn" href="Blue/index.html" target="_self">Open Blue</a>
-    <a class="nav-btn" href="White/index.html" target="_self">Open White</a>
+    <div class="side-menu-container">
+      <!-- Sidebar Toggle Buttons -->
+      <div id="sidebar" class="sidebar collapsed">
+        <i id="toggleBtn" class="fa-solid fa-bars menu-icon"></i>
+        <ul>
+          <li>
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Reports</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-list"></i>
+            <span>Test Cases</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </li>
+        </ul>
+
+        <div class="bottom">
+          <div class="theme-switcher">
+            <button class="theme-btn active" data-theme="black"><span class="theme-dot black-dot"></span></button>
+            <button class="theme-btn" data-theme="blue"><span class="theme-dot blue-dot"></span></button>
+            <button class="theme-btn" data-theme="white"><span class="theme-dot white-dot"></span></button>
+          </div>
+          <h1>v <span>1.0.0</span></h1>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="body-container">
+      <!-- Header -->
+      <header class="header">
+        <div>
+          <div class="report-title">Custom Selenium Test Report</div>
+          <span class="sub-title">Test Execution Results</span>
+        </div>
+        <div class="header-right">
+          <div class="time-details">
+            <div class="single-details">Date : <span>Apr 3, 2026 10:35 AM</span></div>
+            <div class="single-details">Job Duration : <span>12m 34s</span></div>
+            <div class="single-details">Job Number : <span>53</span></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Summary Cards -->
+      <div class="cards">
+
+        <div class="stat-card gray">
+          <div class="icon-box outline">
+            <i class="fa-solid fa-chart-diagram"></i>
+          </div>
+          <div>
+            <div class="card-title">TOTAL MODULE</div>
+            <div class="card-value">2</div>
+            <span class="card-sub-title">Executed</span>
+          </div>
+        </div>
+
+        <div class="stat-card teal">
+          <div class="icon-box outline">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <div>
+            <div class="card-title">TOTAL TESTS</div>
+            <div class="card-value">15</div>
+            <span class="card-sub-title">Executed</span>
+          </div>
+        </div>
+
+        <div class="stat-card green">
+          <div class="icon-box outline">
+            <i class="fa-regular fa-circle-check"></i>
+          </div>
+          <div>
+            <div class="card-title">PASSED</div>
+            <div class="card-value">12</div>
+            <span class="card-sub-title">80.0% Success Rate</span>
+          </div>
+        </div>
+
+        <div class="stat-card red">
+          <div class="icon-box outline">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <div>
+            <div class="card-title">FAILED</div>
+            <div class="card-value">2</div>
+            <span class="card-sub-title">13.3% Failure Rate</span>
+          </div>
+        </div>
+
+        <div class="stat-card blue">
+          <div class="icon-box outline">
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <div>
+            <div class="card-title">DURATION</div>
+            <div class="card-value">12m 34s</div>
+            <span class="card-sub-title">Total Execution Time</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts">
+
+        <div class="chart-box">
+          <div class="chart-title"><i class="fa-solid fa-chart-pie"></i> Execution Summary</div>
+          <div class="chart-card">
+            <div class="chart-card-left">
+              <div class="chart-card-container">
+                <div class="donut-chart">
+                  <div class="chart-card-center-text">15</div>
+                </div>
+                <div class="chart-card-legend">
+                  <div><span class="chart-card-dot passed"></span> 12 Passed</div>
+                  <div><span class="chart-card-dot failed"></span> 2 Failed</div>
+                  <div><span class="chart-card-dot skipped"></span> 1 Skipped</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-card-right">
+              <div class="chart-card-metric">
+                <i class="fa-solid fa-stopwatch"></i>
+                <div>
+                  <div class="chart-card-value">12:34</div>
+                  <div class="chart-card-label">Total Duration</div>
+                </div>
+              </div>
+              <div class="chart-card-metric">
+                <i class="fa-solid fa-bolt"></i>
+                <div>
+                  <div class="chart-card-value">00:00:50</div>
+                  <div class="chart-card-label">Avg. per Test</div>
+                </div>
+              </div>
+              <div class="chart-card-metric">
+                <i class="fa-solid fa-percent"></i>
+                <div>
+                  <div class="chart-card-value">80%</div>
+                  <div class="chart-card-label">Success Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-box env-box">
+          <div class="chart-title"><i class="fa-solid fa-tv"></i> Environment Information</div>
+          <div class="env-row chrome">
+            <i class="fa-solid fa-earth-asia"></i>
+            <span class="label">Browser:</span>
+            <span>Chrome 123.0.6312.86</span>
+          </div>
+          <div class="env-row windows">
+            <i class="fa-brands fa-windows"></i>
+            <span class="label">OS:</span>
+            <span>Windows 11 (x64)</span>
+          </div>
+          <div class="env-row screen">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+            <span class="label">Screen Resolution:</span>
+            <span>1920x1080</span>
+          </div>
+          <div class="env-row link">
+            <i class="fa-solid fa-link"></i>
+            <span class="label">Base URL:</span>
+            <span>https://demo.saucedemo.com</span>
+          </div>
+          <div class="env-row framework">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span class="label">Framework:</span>
+            <span>Selenium 4.18.1 | C# .NET 8.0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-section">
+        <div class="tabledata-header">
+          <div class="tabledata-title"><i class="fa-solid fa-microscope"></i> Test Results</div>
+          <div class="tabledata-actions">
+            <div class="tabledata-search-box">
+              <input type="text" id="searchInput" placeholder="Search tests..." oninput="filterTable()">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <select id="statusFilter" onchange="filterTable()">
+              <option value="all">All Status</option>
+              <option value="passed">Passed</option>
+              <option value="failed">Failed</option>
+              <option value="skipped">Skipped</option>
+            </select>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Test Name</th>
+              <th>Test Description</th>
+              <th>Status</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody id="testTableBody">
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_001</strong></td>
+              <td><strong>Login with valid credentials</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:28</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_002</strong></td>
+              <td><strong>Logout</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:19</td>
+            </tr>
+            <tr data-status="failed">
+              <td><i class="fa-solid fa-circle-xmark fail-icon"></i><strong>TC_003</strong></td>
+              <td><strong>Invalid password</strong></td>
+              <td><span class="badge fail">Failed</span></td>
+              <td>00:00:31</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_004</strong></td>
+              <td><strong>Add to cart</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:24</td>
+            </tr>
+            <tr data-status="failed">
+              <td><i class="fa-solid fa-circle-xmark fail-icon"></i><strong>TC_005</strong></td>
+              <td><strong>Checkout</strong></td>
+              <td><span class="badge fail">Failed</span></td>
+              <td>00:00:47</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_006</strong></td>
+              <td><strong>Sort products by price</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:22</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_007</strong></td>
+              <td><strong>View product details</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:18</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_008</strong></td>
+              <td><strong>Remove item from cart</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:33</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_009</strong></td>
+              <td><strong>Continue shopping after cart</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:27</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_010</strong></td>
+              <td><strong>Fill checkout information</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:41</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_011</strong></td>
+              <td><strong>Order confirmation page</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:36</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_012</strong></td>
+              <td><strong>Navigate back from checkout</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:29</td>
+            </tr>
+            <tr data-status="skipped">
+              <td><i class="fa-solid fa-circle-minus skip-icon"></i><strong>TC_013</strong></td>
+              <td><strong>Social media links</strong></td>
+              <td><span class="badge skip">Skipped</span></td>
+              <td>00:00:00</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_014</strong></td>
+              <td><strong>Reset app state</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:15</td>
+            </tr>
+            <tr data-status="passed">
+              <td><i class="fa-solid fa-circle-check pass-icon"></i><strong>TC_015</strong></td>
+              <td><strong>Login with locked user</strong></td>
+              <td><span class="badge pass">Passed</span></td>
+              <td>00:00:25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
   </div>
+
+  <script src="app.js"></script>
 </body>
+
 </html>
