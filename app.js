@@ -1,29 +1,49 @@
 // ─── Theme Switcher ───────────────────────────────────────────────
-const themeLink   = document.getElementById('theme-style');
-const themeBtns   = document.querySelectorAll('.theme-btn');
+const themeLink = document.getElementById('theme-style');
+const themeBtns = document.querySelectorAll('.theme-btn');
+const themesidebar = document.getElementById("sidebar");
 
+// Helper: get active theme button
+function getActiveThemeBtn() {
+  return document.querySelector('.theme-btn.active');
+}
+
+// Apply a theme
+function applyTheme(theme) {
+  themeLink.setAttribute('href', "themes/" + theme + ".css");
+
+  themeBtns.forEach(btn => btn.classList.remove('active'));
+  const btn = document.querySelector(`.theme-btn[data-theme="${theme}"]`);
+  if (btn) btn.classList.add('active');
+
+  localStorage.setItem('selectedTheme', theme);
+}
+
+// Click logic for theme buttons
 themeBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     const theme = btn.getAttribute('data-theme');
-    themeLink.setAttribute('href', "themes/"+theme+".css");
-
-    // Update active state
-    themeBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // Persist selection
-    localStorage.setItem('selectedTheme', theme);
+    applyTheme(theme);
   });
+});
+
+// Cycle theme when sidebar is collapsed
+const bottomThemeSwitcher = document.querySelector('.bottom .theme-switcher');
+bottomThemeSwitcher.addEventListener('click', () => {
+  if (!themesidebar.classList.contains('collapsed')) return; // Only cycle when collapsed
+
+  const themes = Array.from(themeBtns).map(btn => btn.getAttribute('data-theme'));
+  let activeBtn = getActiveThemeBtn();
+  let currentIndex = themes.indexOf(activeBtn.getAttribute('data-theme'));
+  let nextIndex = (currentIndex + 1) % themes.length;
+  applyTheme(themes[nextIndex]);
 });
 
 // Restore saved theme on load
 window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('selectedTheme');
   if (saved) {
-    themeLink.setAttribute('href', "themes/"+saved+".css");
-    themeBtns.forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-theme') === saved);
-    });
+    applyTheme(saved);
   }
 });
 
@@ -76,3 +96,36 @@ toggleBtn.addEventListener("click", () => {
   sidebar.classList.toggle("collapsed");
 });
 
+
+
+
+
+// Card data
+const cardData = [
+  { title: "TOTAL MODULE", value: 2, subtitle: "Executed", icon: "fa-solid fa-chart-diagram", className: "gray" },
+  { title: "TOTAL TESTS", value: 15, subtitle: "Executed", icon: "fa-solid fa-list-check", className: "teal" },
+  { title: "PASSED", value: 12, subtitle: "80.0% Success Rate", icon: "fa-regular fa-circle-check", className: "green" },
+  { title: "FAILED", value: 2, subtitle: "13.3% Failure Rate", icon: "fa-regular fa-circle-xmark", className: "red" },
+  { title: "DURATION", value: "12m 34s", subtitle: "Total Execution Time", icon: "fa-regular fa-clock", className: "blue" }
+];
+
+// Function to create a card
+function createCard({ title, value, subtitle, icon, className }) {
+  const card = document.createElement("div");
+  card.className = `stat-card ${className}`; // use the className from data
+  card.innerHTML = `
+    <div class="icon-box outline">
+      <i class="${icon}"></i>
+    </div>
+    <div>
+      <div class="card-title">${title}</div>
+      <div class="card-value">${value}</div>
+      <span class="card-sub-title">${subtitle}</span>
+    </div>
+  `;
+  return card;
+}
+
+// Render cards
+const container = document.getElementById("cards-container");
+cardData.forEach(data => container.appendChild(createCard(data)));

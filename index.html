@@ -19,20 +19,13 @@
         <i id="toggleBtn" class="fa-solid fa-bars menu-icon"></i>
         <ul>
           <li>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-chart-column"></i>
             <span>Dashboard</span>
           </li>
+
           <li>
-            <i class="fa-solid fa-chart-line"></i>
-            <span>Reports</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-list"></i>
+            <i class="fa-solid fa-list-check"></i>
             <span>Test Cases</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-gear"></i>
-            <span>Settings</span>
           </li>
         </ul>
 
@@ -42,7 +35,7 @@
             <button class="theme-btn" data-theme="blue"><span class="theme-dot blue-dot"></span></button>
             <button class="theme-btn" data-theme="white"><span class="theme-dot white-dot"></span></button>
           </div>
-          <h1>v <span>1.0.0</span></h1>
+          <h1>v <span>1.0</span></h1>
         </div>
 
       </div>
@@ -65,64 +58,8 @@
       </header>
 
       <!-- Summary Cards -->
-      <div class="cards">
 
-        <div class="stat-card gray">
-          <div class="icon-box outline">
-            <i class="fa-solid fa-chart-diagram"></i>
-          </div>
-          <div>
-            <div class="card-title">TOTAL MODULE</div>
-            <div class="card-value">2</div>
-            <span class="card-sub-title">Executed</span>
-          </div>
-        </div>
-
-        <div class="stat-card teal">
-          <div class="icon-box outline">
-            <i class="fa-solid fa-list-check"></i>
-          </div>
-          <div>
-            <div class="card-title">TOTAL TESTS</div>
-            <div class="card-value">15</div>
-            <span class="card-sub-title">Executed</span>
-          </div>
-        </div>
-
-        <div class="stat-card green">
-          <div class="icon-box outline">
-            <i class="fa-regular fa-circle-check"></i>
-          </div>
-          <div>
-            <div class="card-title">PASSED</div>
-            <div class="card-value">12</div>
-            <span class="card-sub-title">80.0% Success Rate</span>
-          </div>
-        </div>
-
-        <div class="stat-card red">
-          <div class="icon-box outline">
-            <i class="fa-regular fa-circle-xmark"></i>
-          </div>
-          <div>
-            <div class="card-title">FAILED</div>
-            <div class="card-value">2</div>
-            <span class="card-sub-title">13.3% Failure Rate</span>
-          </div>
-        </div>
-
-        <div class="stat-card blue">
-          <div class="icon-box outline">
-            <i class="fa-regular fa-clock"></i>
-          </div>
-          <div>
-            <div class="card-title">DURATION</div>
-            <div class="card-value">12m 34s</div>
-            <span class="card-sub-title">Total Execution Time</span>
-          </div>
-        </div>
-
-      </div>
+      <div id="cards-container" class="cards"></div>
 
       <!-- Charts Section -->
       <div class="charts">
@@ -131,16 +68,7 @@
           <div class="chart-title"><i class="fa-solid fa-chart-pie"></i> Execution Summary</div>
           <div class="chart-card">
             <div class="chart-card-left">
-              <div class="chart-card-container">
-                <div class="donut-chart">
-                  <div class="chart-card-center-text">15</div>
-                </div>
-                <div class="chart-card-legend">
-                  <div><span class="chart-card-dot passed"></span> 12 Passed</div>
-                  <div><span class="chart-card-dot failed"></span> 2 Failed</div>
-                  <div><span class="chart-card-dot skipped"></span> 1 Skipped</div>
-                </div>
-              </div>
+              <canvas id="donutChart" width="400" height="400"></canvas>
             </div>
 
             <div class="chart-card-right">
@@ -324,7 +252,9 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="app.js"></script>
+  <script src="chart.js"></script>
 </body>
 
 </html>

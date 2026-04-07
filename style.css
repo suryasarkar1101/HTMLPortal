@@ -5,14 +5,16 @@ body {
 }
 
 .container {
-    display:  flex;
+    display: flex;
 }
-.side-menu-container{
+
+.side-menu-container {
     width: 70px;
     height: 100%;
     max-height: 100%;
 }
-.body-container{
+
+.body-container {
     width: calc(100% - 70px);
     padding: 20px;
 }
@@ -259,67 +261,9 @@ body {
 
 .chart-card-left {
     flex: 1;
-}
-
-.chart-card-container {
-    display: flex;
-    align-items: center;
-}
-
-.donut-chart {
-    width: 175px;
-    height: 175px;
-    border-radius: 50%;
-    background: conic-gradient(#22c55e 0% 80%, #ef4444 80% 93.3%, #f59e0b 93.3% 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-.donut-chart::before {
-    content: "";
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.chart-card-center-text {
-    position: absolute;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.chart-card-legend {
-    margin-left: 30px;
-}
-
-.chart-card-legend div {
-    margin: 8px 0;
-    font-size: 14px;
-}
-
-.chart-card-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 8px;
-}
-
-.chart-card-dot.passed {
-    background: #22c55e;
-}
-
-.chart-card-dot.failed {
-    background: #ef4444;
-}
-
-.chart-card-dot.skipped {
-    background: #f59e0b;
+    max-width: 300px; /* limit how big it can grow */
+    max-height: 300px;
+    position: relative; /* needed for center text */
 }
 
 .chart-card-right {
@@ -531,100 +475,142 @@ td {
 
 /* Sidebar */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 240px;
-  height: 100%;
-  background: #111;
-  color: #fff;
-  padding-top: 60px;
-  transition: 0.3s ease;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background: #111;
+    color: #fff;
+    padding-top: 60px;
+    transition: 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Collapsed */
 .sidebar.collapsed {
-  width: 70px;
+    width: 70px;
 }
 
 /* Menu */
 .sidebar ul {
-  list-style: none;
-  padding: 0;
-  height: calc(100% - 180px);
+    list-style: none;
+    padding: 0;
+    height: calc(100% - 180px);
 }
 
 .sidebar ul li {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px 20px;
-  cursor: pointer;
-  border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid #aaa;
 }
 
 .sidebar ul li:hover {
-  background: #222;
+    background: #222;
 }
 
 /* Icons */
 .sidebar ul li i {
-  min-width: 20px;
-  font-size: 18px;
+    min-width: 20px;
+    font-size: 18px;
 }
 
 /* Text */
 .sidebar ul li span {
-  transition: 0.3s;
+    transition: 0.3s;
 }
 
 /* Hide text when collapsed */
 .sidebar.collapsed ul li span {
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Hamburger ICON (no button) */
 .menu-icon {
-  position: fixed;
-  top: 25px;
-  left: 20px;
-  font-size: 24px;
-  color: #d3d83c;
-  cursor: pointer;
-  z-index: 1100;
+    position: fixed;
+    top: 25px;
+    left: 20px;
+    font-size: 24px;
+    color: #d3d83c;
+    cursor: pointer;
+    z-index: 1100;
 }
 
-/* Bottom */
+/* Bottom Section */
 .bottom {
-  padding: 10px;
-  border-top: 1px solid #333;
-  text-align: center;
-  align-items: center;
-  /* margin-bottom: 6rem; */
+    padding: 10px;
+    border-top: 2px solid #aaa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Hide bottom when collapsed */
-.sidebar.collapsed .bottom {
-  display: none;
+/* Theme Switcher */
+.theme-switcher {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
 
-/* Version */
+/* Hide all theme buttons by default when collapsed */
+.sidebar.collapsed .theme-switcher .theme-btn {
+    display: none;
+}
+
+/* Show only the active theme button when collapsed */
+.sidebar.collapsed .theme-switcher .theme-btn.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Theme dots */
+.theme-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+}
+
+.black-dot {
+    background: #1f2937;
+    border: 1px solid #374151;
+}
+
+.blue-dot {
+    background: #3b82f6;
+}
+
+.white-dot {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+}
+
+/* Version Text */
 .bottom h1 {
-  font-size: 14px;
-  color: #aaa;
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+    text-align: center;
 }
 
 .bottom span {
-  color: #fff;
-  font-weight: 600;
+    color: #fff;
+    font-weight: 600;
 }
 
-/* Hover effect for icon */
-.menu-icon:hover {
-  transform: scale(1.1);
-  transition: 0.2s ease;
+/* When collapsed → optional: hide version text or shrink */
+.sidebar.collapsed .bottom h1 {
+    font-size: 12px;
+}
+
+.sidebar.collapsed .bottom h1 span {
+    font-size: 15px;
 }
