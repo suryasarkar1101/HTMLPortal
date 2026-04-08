@@ -1,8 +1,18 @@
+let donutChart;
+
+function getFontColor() {
+  const theme = document.getElementById('theme-style').getAttribute('href');
+  return theme.includes('white') ? '#000000' : '#ffffff';
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   const ctx = document.getElementById('donutChart').getContext('2d');
+  const fontColor = getFontColor();
+
+  Chart.defaults.color = fontColor;
 
   const data = {
-    labels: ['Passed', 'Failed', 'Skipped'],
+    labels: ['12 Passed', '2 Failed', '1 Skipped'],
     datasets: [{
       data: [12, 2, 1],
       backgroundColor: [
@@ -24,18 +34,33 @@ window.addEventListener('DOMContentLoaded', () => {
     data: data,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       cutout: '70%',
+      animation: {
+        animateRotate: true,
+        animateScale: true,
+        duration: 1500,
+        easing: 'easeOutCubic'
+      },
       plugins: {
         legend: {
-          position: 'bottom',
+          position: 'right',
           labels: {
-            boxWidth: 20,
-            padding: 15
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 10,
+            padding: 15,
+            color: fontColor,
+            font: {
+              size: 14,
+              family: 'Poppins',
+              weight: 'bold'
+            }
           }
         },
         tooltip: {
           callbacks: {
-            label: function(context) {
+            label: function (context) {
               return `${context.label}: ${context.raw}`;
             }
           }
@@ -44,19 +69,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  
-  const donutChart = new Chart(ctx, config);
 
-  // Optional center text
-  const container = ctx.canvas.parentNode;
-  const centerText = document.createElement('div');
-  centerText.innerText = '15'; 
-  centerText.style.position = 'absolute';
-  centerText.style.top = '50%';
-  centerText.style.left = '50%';
-  centerText.style.transform = 'translate(-50%, -50%)';
-  centerText.style.fontWeight = 'bold';
-  centerText.style.fontSize = '20px';
-  container.style.position = 'relative';
-  container.appendChild(centerText);
+  // ✅ FIXED: replaced setTimeout with requestAnimationFrame
+  requestAnimationFrame(() => {
+    donutChart = new Chart(ctx, config);
+  });
+});
+
+document.querySelectorAll('.theme-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setTimeout(() => {
+      const newColor = getFontColor();
+
+      Chart.defaults.color = newColor;
+      donutChart.options.plugins.legend.labels.color = newColor;
+
+      donutChart.reset();
+      donutChart.update();
+    }, 100);
+  });
 });

@@ -129,3 +129,9 @@ function createCard({ title, value, subtitle, icon, className }) {
 // Render cards
 const container = document.getElementById("cards-container");
 cardData.forEach(data => container.appendChild(createCard(data)));
+
+
+
+
+//Chart.js part
+
