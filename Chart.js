@@ -44,6 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  
   const donutChart = new Chart(ctx, config);
 
   // Optional center text
