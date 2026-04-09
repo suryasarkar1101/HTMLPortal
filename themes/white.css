@@ -103,10 +103,5 @@ tbody tr:hover {
   color: #aaa;
 }
 
-.menu-item:hover {
-  background: #aaa;
-}
 
-.menu-item.menu-selected {
-    background: #aaa;
-}
+

@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
             boxWidth: 8,
             boxHeight: 8,
 
-            padding: 8,
+            padding: 20,
 
             // 🔥 IMPORTANT (controls actual dot size)
             generateLabels: function (chart) {
@@ -60,13 +60,13 @@ window.addEventListener('DOMContentLoaded', () => {
               const labels = original(chart);
 
               labels.forEach(label => {
-                const value = chart.data.datasets[0].data[label.index]; 
-                const text = chart.data.labels[label.index]; 
+                const value = chart.data.datasets[0].data[label.index];
+                const text = chart.data.labels[label.index];
 
-                label.text = `${value} ${text}`; 
+                label.text = `  ${value} ${text}`;
 
                 label.pointStyle = 'circle';
-                label.radius = 5; // dot size
+                label.radius = 3.5; // dot size
               });
 
               return labels;
@@ -74,9 +74,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             color: fontColor,
             font: {
-              size: 13,
+              size: 14,
               family: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
-              weight: 600
+              weight: 600,
+              lineHeight: 1
             }
           }
         },

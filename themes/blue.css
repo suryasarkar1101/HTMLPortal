@@ -80,10 +80,5 @@ tbody tr:hover {
 
 }
 
-.menu-item:hover {
-  background: #527d8e;
-}
 
-.menu-item.menu-selected {
-    background: #527d8e;
-}
+
