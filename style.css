@@ -261,10 +261,11 @@ body {
 
 .chart-card-left {
     flex: 1;
-    max-height: 220px;
+    max-height: 200px;
     position: relative; /* needed for center text */
     margin-top: -10px;
-    min-width: 60%;
+    min-width: 55%;
+    padding-right: 20px;
 }
 
 
