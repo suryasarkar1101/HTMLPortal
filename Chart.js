@@ -48,13 +48,35 @@ window.addEventListener('DOMContentLoaded', () => {
           labels: {
             usePointStyle: true,
             pointStyle: 'circle',
-            boxWidth: 10,
-            padding: 15,
+
+            boxWidth: 8,
+            boxHeight: 8,
+
+            padding: 8,
+
+            // 🔥 IMPORTANT (controls actual dot size)
+            generateLabels: function (chart) {
+              const original = Chart.overrides.doughnut.plugins.legend.labels.generateLabels;
+              const labels = original(chart);
+
+              labels.forEach(label => {
+                const value = chart.data.datasets[0].data[label.index]; 
+                const text = chart.data.labels[label.index]; 
+
+                label.text = `${value} ${text}`; 
+
+                label.pointStyle = 'circle';
+                label.radius = 5; // dot size
+              });
+
+              return labels;
+            },
+
             color: fontColor,
             font: {
-              size: 14,
-              family: 'Poppins',
-              weight: 'bold'
+              size: 13,
+              family: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
+              weight: 600
             }
           }
         },

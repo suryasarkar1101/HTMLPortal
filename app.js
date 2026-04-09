@@ -131,7 +131,107 @@ const container = document.getElementById("cards-container");
 cardData.forEach(data => container.appendChild(createCard(data)));
 
 
+//===================================navigation============================================
 
 
-//Chart.js part
+const menuItems = document.querySelectorAll(".sidebar ul li");
 
+// Get current page name
+const currentPage = window.location.pathname.split("/").pop();
+
+menuItems.forEach(item => {
+  const page = item.getAttribute("data-page");
+
+  // ✅ Set active on load
+  if (page === currentPage || (currentPage === "" && page === "index.html")) {
+    item.classList.add("menu-selected");
+  }
+
+  // ✅ Click → navigate
+  item.addEventListener("click", () => {
+    window.location.href = page;
+  });
+});
+
+
+
+
+//=========================test card dynamic function===========================
+
+
+const testData = [
+  { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: "00:00:28" },
+  { id: "TC_002", desc: "Logout", status: "passed", duration: "00:00:19" },
+  { id: "TC_003", desc: "Invalid password", status: "failed", duration: "00:00:31" },
+  { id: "TC_004", desc: "Add to cart", status: "passed", duration: "00:00:24" },
+  { id: "TC_005", desc: "Checkout", status: "failed", duration: "00:00:47" },
+  { id: "TC_006", desc: "Sort products by price", status: "passed", duration: "00:00:22" },
+  { id: "TC_007", desc: "View product details", status: "passed", duration: "00:00:18" },
+  { id: "TC_008", desc: "Remove item from cart", status: "passed", duration: "00:00:33" },
+  { id: "TC_009", desc: "Continue shopping after cart", status: "passed", duration: "00:00:27" },
+  { id: "TC_010", desc: "Fill checkout information", status: "passed", duration: "00:00:41" },
+  { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: "00:00:36" },
+  { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: "00:00:29" },
+  { id: "TC_013", desc: "Social media links", status: "skipped", duration: "00:00:00" }
+];
+
+// 🔥 icon + class mapping
+function getStatusUI(status) {
+  if (status === "passed") {
+    return {
+      icon: "fa-circle-check pass-icon",
+      badge: "badge pass",
+      text: "Passed"
+    };
+  } else if (status === "failed") {
+    return {
+      icon: "fa-circle-xmark fail-icon",
+      badge: "badge fail",
+      text: "Failed"
+    };
+  } else {
+    return {
+      icon: "fa-circle-minus skip-icon",
+      badge: "badge skip",
+      text: "Skipped"
+    };
+  }
+}
+
+function generateTable(data) {
+  const tbody = document.getElementById("testTableBody");
+  tbody.innerHTML = "";
+
+  data.forEach(test => {
+    const ui = getStatusUI(test.status);
+
+    const row = document.createElement("tr");
+    row.setAttribute("data-status", test.status);
+
+    row.innerHTML = `
+      <td>
+        <i class="fa-solid ${ui.icon}"></i>
+        <strong>${test.id}</strong>
+      </td>
+
+      <td>
+        <strong>${test.desc}</strong>
+      </td>
+
+      <td>
+        <span class="${ui.badge}">${ui.text}</span>
+      </td>
+
+      <td>
+        ${test.duration}
+      </td>
+    `;
+
+    tbody.appendChild(row);
+  });
+}
+
+// 🔥 Load on start
+window.addEventListener("DOMContentLoaded", () => {
+  generateTable(testData);
+});
