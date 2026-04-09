@@ -52,14 +52,14 @@ window.addEventListener('DOMContentLoaded', () => {
 function filterTable() {
   const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
   const statusVal = document.getElementById('statusFilter').value.toLowerCase();
-  const rows      = document.querySelectorAll('#testTableBody tr');
+  const rows = document.querySelectorAll('#testTableBody tr');
 
   let visibleCount = 0;
 
   rows.forEach(row => {
     if (row.classList.contains('no-results')) return;
 
-    const text   = row.textContent.toLowerCase();
+    const text = row.textContent.toLowerCase();
     const status = row.getAttribute('data-status') || '';
 
     const matchSearch = searchVal === '' || text.includes(searchVal);
@@ -134,25 +134,23 @@ cardData.forEach(data => container.appendChild(createCard(data)));
 //===================================navigation============================================
 
 
-const menuItems = document.querySelectorAll(".sidebar ul li");
+window.addEventListener("DOMContentLoaded", () => {
 
-// Get current page name
-const currentPage = window.location.pathname.split("/").pop();
+  const menuItems = document.querySelectorAll(".menu-item");
 
-menuItems.forEach(item => {
-  const page = item.getAttribute("data-page");
+  menuItems.forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
 
-  // ✅ Set active on load
-  if (page === currentPage || (currentPage === "" && page === "index.html")) {
-    item.classList.add("menu-selected");
-  }
+      const page = item.getAttribute("data-page");
 
-  // ✅ Click → navigate
-  item.addEventListener("click", () => {
-    window.location.href = page;
+      if (page) {
+        window.location.href = page;
+      }
+    });
   });
-});
 
+});
 
 
 
@@ -173,6 +171,21 @@ const testData = [
   { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: "00:00:36" },
   { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: "00:00:29" },
   { id: "TC_013", desc: "Social media links", status: "skipped", duration: "00:00:00" }
+];
+const moduleData = [
+  { module: "AdWeb_Audit", excution_time: 72781, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 0 },
+  { module: "AdWeb_BusinessViews", excution_time: 321321, total_script: 65, total_success: 25, total_fail: 15, non_verifying: 2 },
+  { module: "AdWeb_CoreModelsExport", excution_time: 261959, total_script: 175, total_success: 25, total_fail: 15, non_verifying: 3 },
+  { module: "AdWeb_CoreModelsImport", excution_time: 492654, total_script: 60, total_success: 25, total_fail: 15, non_verifying: 1 },
+  { module: "DLLUtils_AAC", excution_time: 13251, total_script: 12, total_success: 25, total_fail: 15, non_verifying: 5 },
+  { module: "DLLUtils_AAD", excution_time: 152794, total_script: 85, total_success: 25, total_fail: 15, non_verifying: 1 },
+  { module: "DLLUtils_MM", excution_time: 175992, total_script: 354, total_success: 25, total_fail: 15, non_verifying: 2 },
+  { module: "DLLUtils_MT_1", excution_time: 108628, total_script: 125, total_success: 25, total_fail: 15, non_verifying: 1 },
+  { module: "Export", excution_time: 820172, total_script: 150, total_success: 25, total_fail: 15, non_verifying: 0 },
+  { module: "LabelCode", excution_time: 21508, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 0 },
+  { module: "LanguagesAdmin", excution_time: 68386, total_script: 25, total_success: 25, total_fail: 15, non_verifying: 5 },
+  { module: "ModelsApplications", excution_time: 186215, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 8 },
+  { module: "NewForm", excution_time: 8601227, total_script: 800, total_success: 25, total_fail: 15, non_verifying: 1 }
 ];
 
 // 🔥 icon + class mapping
@@ -225,6 +238,7 @@ function generateTable(data) {
       <td>
         ${test.duration}
       </td>
+      
     `;
 
     tbody.appendChild(row);
@@ -233,5 +247,61 @@ function generateTable(data) {
 
 // 🔥 Load on start
 window.addEventListener("DOMContentLoaded", () => {
-  generateTable(testData);
+
+  // ✅ Test table (only if exists)
+  const testTable = document.getElementById("testTableBody");
+  if (testTable) {
+    generateTable(testData);
+  }
+
+  // ✅ Module table (only if exists)
+  const moduleTable = document.getElementById("moduleTableBody");
+  if (moduleTable) {
+    generateModuleTable(moduleData, "moduleTableBody");
+  }
+
 });
+
+
+
+//=========================================== Module Table ==================
+
+
+
+
+
+function generateModuleTable(data, tableBodyId) {
+  const tbody = document.getElementById(tableBodyId);
+  tbody.innerHTML = "";
+
+  data.forEach(item => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td><strong>${item.module}</strong></td>
+
+      <td>${formatDuration(item.excution_time)}</td>
+
+      <td>${item.total_script}</td>
+
+      <td style="color:#22c55e;">${item.total_success}</td>
+
+      <td style="color:#ef4444;">${item.total_fail}</td>
+
+      <td>${item.non_verifying}</td>
+    `;
+
+    tbody.appendChild(row);
+  });
+}
+
+function formatDuration(ms) {
+  let seconds = Math.floor(ms / 1000);
+  let minutes = Math.floor(seconds / 60);
+  let hours = Math.floor(minutes / 60);
+
+  seconds = seconds % 60;
+  minutes = minutes % 60;
+
+  return `${hours}h ${minutes}m ${seconds}s`;
+}

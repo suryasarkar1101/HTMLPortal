@@ -133,32 +133,39 @@
       <!-- Table -->
       <div class="table-section">
         <div class="tabledata-header">
-          <div class="tabledata-title"><i class="fa-solid fa-microscope"></i> Test Results</div>
+          <div class="tabledata-title"><i class="fa-solid fa-microscope"></i>All Modules</div>
           <div class="tabledata-actions">
             <div class="tabledata-search-box">
               <input type="text" id="searchInput" placeholder="Search tests..." oninput="filterTable()">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <select id="statusFilter" onchange="filterTable()">
-              <option value="all">All Status</option>
-              <option value="passed">Passed</option>
-              <option value="failed">Failed</option>
-              <option value="skipped">Skipped</option>
-            </select>
+
           </div>
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Test Name</th>
-              <th>Test Description</th>
-              <th>Status</th>
-              <th>Duration</th>
-            </tr>
-          </thead>
-          <tbody id="testTableBody"></tbody>
-        </table>
+        <!-- <div class="table-section module-table"> -->
+
+          <!-- <div class="tabledata-header">
+            <div class="tabledata-title">
+              <i class="fa-solid fa-microscope"></i> All Modules
+            </div>
+          </div> -->
+
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th>Module Name</th>
+                <th>Execution Time</th>
+                <th>Total Script</th>
+                <th>Total Success</th>
+                <th>Total Fail</th>
+                <th>Non-Verifying</th>
+              </tr>
+            </thead>
+            <tbody id="moduleTableBody"></tbody>
+          </table>
+
+        <!-- </div> -->
       </div>
 
     </div>
