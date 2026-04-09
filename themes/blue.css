@@ -75,11 +75,15 @@ tbody tr:hover {
 .sidebar {
     background: rgba(30, 41, 59); /* Dark blue background */
     color: #fff; /* Text stays white */
-    border: 2px solid rgb(22, 30, 43);
+    border-right: 2px solid rgb(22, 30, 43);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 
 }
 
-.sidebar ul li:hover {
+.menu-item:hover {
   background: #527d8e;
+}
+
+.menu-item.menu-selected {
+    background: #527d8e;
 }

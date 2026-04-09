@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
   Chart.defaults.color = fontColor;
 
   const data = {
-    labels: ['Passed', 'Failed', 'Skipped'],
+    labels: [' Passed', ' Failed', ' Skipped'],
     datasets: [{
       data: [12, 2, 1],
       backgroundColor: [
@@ -68,6 +68,9 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   };
+  requestAnimationFrame(() => {
+    donutChart = new Chart(ctx, config);
+  });
 
 });
 

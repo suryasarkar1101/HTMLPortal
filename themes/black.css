@@ -75,10 +75,6 @@ tbody tr:hover {
 .sidebar {
     background: rgba(20, 21, 23); /* Dark blackish background */
     color: #fff; /* Keep text white */
-    border: 2px solid rgb(25, 26, 30);
+    border-right: 2px solid rgb(25, 26, 30);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
-
-/* .sidebar ul li {
-    border-bottom: 1px solid #aaa;
-} */

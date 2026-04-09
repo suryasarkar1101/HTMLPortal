@@ -262,7 +262,8 @@ body {
 .chart-card-left {
     flex: 1;
     max-height: 200px;
-    position: relative; /* needed for center text */
+    position: relative;
+    /* needed for center text */
     margin-top: -10px;
     min-width: 55%;
     padding-right: 20px;
@@ -467,8 +468,8 @@ td {
     color: #f59e0b;
 }
 
-/* No results row */
-.no-results td {
+/* No res.full-menuts row */
+.no-res.full-menuts td {
     text-align: center;
     color: #9ca3af;
     padding: 30px;
@@ -485,7 +486,7 @@ td {
     height: 100%;
     background: #111;
     color: #fff;
-    padding-top: 60px;
+    padding-top: 30px;
     transition: 0.3s ease;
     z-index: 1000;
     display: flex;
@@ -498,51 +499,63 @@ td {
 }
 
 /* Menu */
-.sidebar ul {
-    list-style: none;
+.full-menu {
     padding: 0;
-    height: calc(100% - 180px);
+    padding-top: 20px;
+    height: calc(100% - 155px);
 }
 
-.sidebar ul li {
+.menu-item {
     display: flex;
     align-items: center;
     gap: 15px;
     padding: 15px 20px;
     cursor: pointer;
     border-bottom: 2px solid #aaa;
+    height: 35px;
 }
 
-.sidebar ul li:hover {
+.menu-item:hover {
+    background: #222;
+}
+
+.menu-item.menu-selected {
     background: #222;
 }
 
 /* Icons */
-.sidebar ul li i {
+.menu-item i {
     min-width: 20px;
     font-size: 18px;
 }
 
 /* Text */
-.sidebar ul li span {
+.sidebar .full-menu .menu-item .menu-text {
     transition: 0.3s;
 }
 
 /* Hide text when collapsed */
-.sidebar.collapsed ul li span {
+.sidebar.collapsed .full-menu .menu-item .menu-text {
     opacity: 0;
     pointer-events: none;
 }
 
 /* Hamburger ICON (no button) */
-.menu-icon {
-    position: fixed;
-    top: 25px;
-    left: 20px;
-    font-size: 24px;
+.menu-title i{
+    font-size: 26px;
     color: #d3d83c;
     cursor: pointer;
     z-index: 1100;
+}
+.menu-title{
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.collapsed .menu-title{
+    padding: 0;
+    text-align: center;
 }
 
 /* Bottom Section */
@@ -562,7 +575,7 @@ td {
     justify-content: center;
 }
 
-/* Hide all theme buttons by default when collapsed */
+/* Hide all theme buttons by defa.full-menut when collapsed */
 .sidebar.collapsed .theme-switcher .theme-btn {
     display: none;
 }
@@ -576,8 +589,8 @@ td {
 
 /* Theme dots */
 .theme-dot {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
     display: block;
 }
@@ -597,7 +610,7 @@ td {
 }
 
 /* Version Text */
-.bottom h1 {
+.menu-version {
     font-size: 14px;
     color: #aaa;
     margin: 0;
@@ -610,10 +623,10 @@ td {
 }
 
 /* When collapsed → optional: hide version text or shrink */
-.sidebar.collapsed .bottom h1 {
+.sidebar.collapsed .menu-version {
     font-size: 12px;
 }
 
-.sidebar.collapsed .bottom h1 span {
+.sidebar.collapsed .menu-version span {
     font-size: 15px;
 }

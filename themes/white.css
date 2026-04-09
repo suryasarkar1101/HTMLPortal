@@ -95,7 +95,7 @@ tbody tr:hover {
 .sidebar {
   background: #ffffff; /* Pure white background */
   color: #111; /* Dark text for contrast */
-  border: 2px solid #e2e8f0;
+  border-right: 2px solid #e2e8f0;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
 }
 
@@ -103,6 +103,10 @@ tbody tr:hover {
   color: #aaa;
 }
 
-.sidebar ul li:hover {
+.menu-item:hover {
   background: #aaa;
+}
+
+.menu-item.menu-selected {
+    background: #aaa;
 }
