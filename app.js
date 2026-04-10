@@ -251,13 +251,23 @@ function createCard({ title, value, subtitle, icon, className }) {
 }
 
 // Render cards
-const container = document.getElementById("cards-container");
+function renderCards(data, isTestcasePage = false) {
+  const container = document.getElementById("cards-container");
+  if (!container) return;
 
-const dynamicCardData = getCardData(moduleData);
+  container.innerHTML = "";
 
-dynamicCardData.forEach(data => {
-  container.appendChild(createCard(data));
-});
+  let dynamicCardData = getCardData(data);
+
+  // 🔥 Remove "TOTAL MODULE" card in testcase page
+  if (isTestcasePage) {
+    dynamicCardData = dynamicCardData.filter(card => card.title !== "TOTAL MODULE");
+  }
+
+  dynamicCardData.forEach(card => {
+    container.appendChild(createCard(card));
+  });
+}
 
 
 //===================================navigation============================================
@@ -348,24 +358,38 @@ function generateTable(data) {
 // 🔥 Load on start
 window.addEventListener("DOMContentLoaded", () => {
 
-  // ✅ Test table (only if exists)
   const testTable = document.getElementById("testTableBody");
-  if (testTable) {
-    generateTable(testData);
-  }
-
-  // ✅ Module table (only if exists)
   const moduleTable = document.getElementById("moduleTableBody");
-  if (moduleTable) {
-    generateModuleTable(moduleData, "moduleTableBody");
+
+  const selectedModule = JSON.parse(localStorage.getItem("selectedModule"));
+
+  // ================== TESTCASES PAGE ==================
+  if (selectedModule && testTable) {
+
+    // 👉 pass TRUE here
+    renderCards([selectedModule], true);
+
+    const filteredTests = testData.slice(0, selectedModule.total_script);
+    generateTable(filteredTests);
   }
 
+  // ================== DASHBOARD PAGE ==================
+  else {
 
-  updateChartStats(moduleData);
+    if (moduleTable) {
+      generateModuleTable(moduleData, "moduleTableBody");
+    }
+
+    // 👉 default (false)
+    renderCards(moduleData);
+
+    updateChartStats(moduleData);
+  }
+
 });
 
 
-
+// updateChartStats(moduleData);
 //=========================================== Module Table ==================
 
 
@@ -381,17 +405,19 @@ function generateModuleTable(data, tableBodyId) {
 
     row.innerHTML = `
       <td><strong>${item.module}</strong></td>
-
       <td>${formatDuration(item.excution_time)}</td>
-
       <td>${item.total_script}</td>
-
       <td style="color:#22c55e;">${item.total_success}</td>
-
       <td style="color:#ef4444;">${item.total_fail}</td>
-
       <td>${item.non_verifying}</td>
     `;
+
+    // 🔥 ADD THIS (IMPORTANT)
+    row.style.cursor = "pointer";
+    row.addEventListener("click", () => {
+      localStorage.setItem("selectedModule", JSON.stringify(item));
+      window.location.href = "testcases.html";
+    });
 
     tbody.appendChild(row);
   });
