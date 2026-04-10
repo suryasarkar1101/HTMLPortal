@@ -1,31 +1,75 @@
 let donutChart;
 
+const ctx = document.getElementById('donutChart').getContext('2d');
+
+// 🎨 Create gradients
+const greenGradient = ctx.createLinearGradient(0, 0, 0, 200);
+greenGradient.addColorStop(0, 'rgba(34, 197, 94, 1)');
+greenGradient.addColorStop(1, 'rgba(34, 197, 94, 0.4)');
+
+const redGradient = ctx.createLinearGradient(0, 0, 0, 200);
+redGradient.addColorStop(0, 'rgba(239, 68, 68, 1)');
+redGradient.addColorStop(1, 'rgba(239, 68, 68, 0.4)');
+
+const yellowGradient = ctx.createLinearGradient(0, 0, 0, 200);
+yellowGradient.addColorStop(0, 'rgba(234, 179, 8, 1)');
+yellowGradient.addColorStop(1, 'rgba(234, 179, 8, 0.4)');
+
+// 🟣 Violet (New 4th color)
+const violetGradient = ctx.createLinearGradient(0, 0, 0, 200);
+violetGradient.addColorStop(0, 'rgba(139, 92, 246, 1)');
+violetGradient.addColorStop(1, 'rgba(139, 92, 246, 0.4)');
+
 function getFontColor() {
   const theme = document.getElementById('theme-style').getAttribute('href');
   return theme.includes('white') ? '#000000' : '#ffffff';
 }
 
+
+function getChartData(moduleData) {
+  let totalSuccess = 0;
+  let totalFail = 0;
+  let nonVerifying = 0;
+  let totalScripts = 0;
+
+  moduleData.forEach(item => {
+    totalSuccess += item.total_success;
+    totalFail += item.total_fail;
+    nonVerifying += item.non_verifying;
+    totalScripts += item.total_script;
+  });
+
+  // Remaining (not counted in above)
+  const others = totalScripts - (totalSuccess + totalFail + nonVerifying);
+
+  return [totalSuccess, totalFail, nonVerifying, others];
+}
+
+
 window.addEventListener('DOMContentLoaded', () => {
   const ctx = document.getElementById('donutChart').getContext('2d');
   const fontColor = getFontColor();
+  const dynamicChartData = getChartData(moduleData);
 
   Chart.defaults.color = fontColor;
 
   const data = {
-    labels: [' Passed', ' Failed', ' Skipped'],
+    labels: [' Passed', ' Failed', ' Non-Verifying ', ' Skipped',],
     datasets: [{
-      data: [12, 2, 1],
+      data: dynamicChartData,
       backgroundColor: [
-        'rgba(34, 197, 94, 0.8)',
-        'rgba(239, 68, 68, 0.8)',
-        'rgba(234, 179, 8, 0.8)'
+        greenGradient,
+        redGradient,
+        yellowGradient,
+        violetGradient
       ],
       borderColor: [
         'rgba(34, 197, 94, 1)',
         'rgba(239, 68, 68, 1)',
-        'rgba(234, 179, 8, 1)'
+        'rgba(234, 179, 8, 1)',
+        'rgba(139, 92, 246, 1)'
       ],
-      borderWidth: 2
+      borderWidth: 1
     }]
   };
 

@@ -78,21 +78,21 @@
               <div class="chart-card-metric">
                 <i class="fa-solid fa-stopwatch"></i>
                 <div>
-                  <div class="chart-card-value">12:34</div>
+                  <div class="chart-card-value" id="totalDuration">00:00</div>
                   <div class="chart-card-label">Total Duration</div>
                 </div>
               </div>
               <div class="chart-card-metric">
                 <i class="fa-solid fa-bolt"></i>
                 <div>
-                  <div class="chart-card-value">00:00:50</div>
+                  <div class="chart-card-value" id="avgTest">00:00:00</div>
                   <div class="chart-card-label">Avg. per Test</div>
                 </div>
               </div>
               <div class="chart-card-metric">
                 <i class="fa-solid fa-percent"></i>
                 <div>
-                  <div class="chart-card-value">80%</div>
+                  <div class="chart-card-value" id="successRate">0%</div>
                   <div class="chart-card-label">Success Rate</div>
                 </div>
               </div>
@@ -143,29 +143,22 @@
           </div>
         </div>
 
-        <!-- <div class="table-section module-table"> -->
 
-          <!-- <div class="tabledata-header">
-            <div class="tabledata-title">
-              <i class="fa-solid fa-microscope"></i> All Modules
-            </div>
-          </div> -->
 
-          <table class="modern-table">
-            <thead>
-              <tr>
-                <th>Module Name</th>
-                <th>Execution Time</th>
-                <th>Total Script</th>
-                <th>Total Success</th>
-                <th>Total Fail</th>
-                <th>Non-Verifying</th>
-              </tr>
-            </thead>
-            <tbody id="moduleTableBody"></tbody>
-          </table>
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Module Name</th>
+              <th>Execution Time</th>
+              <th>Total Script</th>
+              <th>Total Success</th>
+              <th>Total Fail</th>
+              <th>Non-Verifying</th>
+            </tr>
+          </thead>
+          <tbody id="moduleTableBody"></tbody>
+        </table>
 
-        <!-- </div> -->
       </div>
 
     </div>

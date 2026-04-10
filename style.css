@@ -683,7 +683,7 @@ td {
     /* border-bottom: 2px solid #334155; */
 }
 
-th:nth-child(1), td:nth-child(1) {
+.modern-table th:nth-child(1) {
     width: 5%;
 }
 

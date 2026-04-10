@@ -1,3 +1,64 @@
+const testData = [
+  { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: "00:00:28" },
+  { id: "TC_002", desc: "Logout", status: "passed", duration: "00:00:19" },
+  { id: "TC_003", desc: "Invalid password", status: "failed", duration: "00:00:31" },
+  { id: "TC_004", desc: "Add to cart", status: "passed", duration: "00:00:24" },
+  { id: "TC_005", desc: "Checkout", status: "failed", duration: "00:00:47" },
+  { id: "TC_006", desc: "Sort products by price", status: "passed", duration: "00:00:22" },
+  { id: "TC_007", desc: "View product details", status: "passed", duration: "00:00:18" },
+  { id: "TC_008", desc: "Remove item from cart", status: "passed", duration: "00:00:33" },
+  { id: "TC_009", desc: "Continue shopping after cart", status: "passed", duration: "00:00:27" },
+  { id: "TC_010", desc: "Fill checkout information", status: "passed", duration: "00:00:41" },
+  { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: "00:00:36" },
+  { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: "00:00:29" },
+  { id: "TC_013", desc: "Social media links", status: "skipped", duration: "00:00:00" }
+];
+window.moduleData = [
+  { module: "AdWeb_Audit", excution_time: 72781, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 0 },
+  { module: "AdWeb_BusinessViews", excution_time: 321321, total_script: 65, total_success: 25, total_fail: 15, non_verifying: 2 },
+  { module: "AdWeb_CoreModelsExport", excution_time: 261959, total_script: 175, total_success: 25, total_fail: 15, non_verifying: 3 },
+  { module: "AdWeb_CoreModelsImport", excution_time: 492654, total_script: 60, total_success: 25, total_fail: 15, non_verifying: 1 },
+  { module: "DLLUtils_AAC", excution_time: 13251, total_script: 12, total_success: 25, total_fail: 15, non_verifying: 5 },
+  { module: "DLLUtils_AAD", excution_time: 152794, total_script: 85, total_success: 25, total_fail: 15, non_verifying: 1 },
+  { module: "DLLUtils_MM", excution_time: 175992, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 2 },
+  { module: "DLLUtils_MT_1", excution_time: 108628, total_script: 125, total_success: 25, total_fail: 15, non_verifying: 1 },
+  { module: "Export", excution_time: 820172, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 0 },
+  { module: "LabelCode", excution_time: 21508, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 0 },
+  { module: "LanguagesAdmin", excution_time: 68386, total_script: 25, total_success: 25, total_fail: 15, non_verifying: 5 },
+  { module: "ModelsApplications", excution_time: 186215, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 8 },
+  { module: "NewForm", excution_time: 8601227, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 1 }
+];
+
+function updateChartStats(moduleData) {
+  let totalTime = 0;
+  let totalTests = 0;
+  let totalSuccess = 0;
+
+  moduleData.forEach(item => {
+    totalTime += item.excution_time;
+    totalTests += item.total_script;
+    totalSuccess += item.total_success;
+  });
+
+  // Total Duration
+  const formattedTotalTime = formatDuration(totalTime);
+
+  // Avg per test
+  const avgTime = totalTime / totalTests;
+  const formattedAvgTime = formatDuration(avgTime);
+
+  // Success %
+  const successRate = ((totalSuccess / totalTests) * 100).toFixed(1) + "%";
+
+  // Update UI
+  document.getElementById("totalDuration").innerText = formattedTotalTime;
+  document.getElementById("avgTest").innerText = formattedAvgTime;
+  document.getElementById("successRate").innerText = successRate;
+}
+
+
+
+
 // ─── Theme Switcher ───────────────────────────────────────────────
 const themeLink = document.getElementById('theme-style');
 const themeBtns = document.querySelectorAll('.theme-btn');
@@ -96,18 +157,81 @@ toggleBtn.addEventListener("click", () => {
   sidebar.classList.toggle("collapsed");
 });
 
+//========================== card data ===================
+
+function calculateDashboardData(moduleData) {
+  let totalModules = moduleData.length;
+
+  let totalTests = 0;
+  let totalPassed = 0;
+  let totalFailed = 0;
+  let totalTime = 0;
+
+  moduleData.forEach(item => {
+    totalTests += item.total_script;
+    totalPassed += item.total_success;
+    totalFailed += item.total_fail;
+    totalTime += item.excution_time;
+  });
+
+  // % calculations
+  const successRate = ((totalPassed / totalTests) * 100).toFixed(1);
+  const failRate = ((totalFailed / totalTests) * 100).toFixed(1);
+
+  return {
+    totalModules,
+    totalTests,
+    totalPassed,
+    totalFailed,
+    totalTime,
+    successRate,
+    failRate
+  };
+}
 
 
+function getCardData(moduleData) {
+  const data = calculateDashboardData(moduleData);
 
+  return [
+    {
+      title: "TOTAL MODULE",
+      value: data.totalModules,
+      subtitle: "Executed",
+      icon: "fa-solid fa-chart-diagram",
+      className: "gray"
+    },
+    {
+      title: "TOTAL TESTS",
+      value: data.totalTests,
+      subtitle: "Executed",
+      icon: "fa-solid fa-list-check",
+      className: "teal"
+    },
+    {
+      title: "PASSED",
+      value: data.totalPassed,
+      subtitle: `${data.successRate}% Success Rate`,
+      icon: "fa-regular fa-circle-check",
+      className: "green"
+    },
+    {
+      title: "FAILED",
+      value: data.totalFailed,
+      subtitle: `${data.failRate}% Failure Rate`,
+      icon: "fa-regular fa-circle-xmark",
+      className: "red"
+    },
+    {
+      title: "DURATION",
+      value: formatDuration(data.totalTime),
+      subtitle: "Total Execution Time",
+      icon: "fa-regular fa-clock",
+      className: "blue"
+    }
+  ];
+}
 
-// Card data
-const cardData = [
-  { title: "TOTAL MODULE", value: 2, subtitle: "Executed", icon: "fa-solid fa-chart-diagram", className: "gray" },
-  { title: "TOTAL TESTS", value: 15, subtitle: "Executed", icon: "fa-solid fa-list-check", className: "teal" },
-  { title: "PASSED", value: 12, subtitle: "80.0% Success Rate", icon: "fa-regular fa-circle-check", className: "green" },
-  { title: "FAILED", value: 2, subtitle: "13.3% Failure Rate", icon: "fa-regular fa-circle-xmark", className: "red" },
-  { title: "DURATION", value: "12m 34s", subtitle: "Total Execution Time", icon: "fa-regular fa-clock", className: "blue" }
-];
 
 // Function to create a card
 function createCard({ title, value, subtitle, icon, className }) {
@@ -128,7 +252,12 @@ function createCard({ title, value, subtitle, icon, className }) {
 
 // Render cards
 const container = document.getElementById("cards-container");
-cardData.forEach(data => container.appendChild(createCard(data)));
+
+const dynamicCardData = getCardData(moduleData);
+
+dynamicCardData.forEach(data => {
+  container.appendChild(createCard(data));
+});
 
 
 //===================================navigation============================================
@@ -157,36 +286,7 @@ window.addEventListener("DOMContentLoaded", () => {
 //=========================test card dynamic function===========================
 
 
-const testData = [
-  { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: "00:00:28" },
-  { id: "TC_002", desc: "Logout", status: "passed", duration: "00:00:19" },
-  { id: "TC_003", desc: "Invalid password", status: "failed", duration: "00:00:31" },
-  { id: "TC_004", desc: "Add to cart", status: "passed", duration: "00:00:24" },
-  { id: "TC_005", desc: "Checkout", status: "failed", duration: "00:00:47" },
-  { id: "TC_006", desc: "Sort products by price", status: "passed", duration: "00:00:22" },
-  { id: "TC_007", desc: "View product details", status: "passed", duration: "00:00:18" },
-  { id: "TC_008", desc: "Remove item from cart", status: "passed", duration: "00:00:33" },
-  { id: "TC_009", desc: "Continue shopping after cart", status: "passed", duration: "00:00:27" },
-  { id: "TC_010", desc: "Fill checkout information", status: "passed", duration: "00:00:41" },
-  { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: "00:00:36" },
-  { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: "00:00:29" },
-  { id: "TC_013", desc: "Social media links", status: "skipped", duration: "00:00:00" }
-];
-const moduleData = [
-  { module: "AdWeb_Audit", excution_time: 72781, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 0 },
-  { module: "AdWeb_BusinessViews", excution_time: 321321, total_script: 65, total_success: 25, total_fail: 15, non_verifying: 2 },
-  { module: "AdWeb_CoreModelsExport", excution_time: 261959, total_script: 175, total_success: 25, total_fail: 15, non_verifying: 3 },
-  { module: "AdWeb_CoreModelsImport", excution_time: 492654, total_script: 60, total_success: 25, total_fail: 15, non_verifying: 1 },
-  { module: "DLLUtils_AAC", excution_time: 13251, total_script: 12, total_success: 25, total_fail: 15, non_verifying: 5 },
-  { module: "DLLUtils_AAD", excution_time: 152794, total_script: 85, total_success: 25, total_fail: 15, non_verifying: 1 },
-  { module: "DLLUtils_MM", excution_time: 175992, total_script: 354, total_success: 25, total_fail: 15, non_verifying: 2 },
-  { module: "DLLUtils_MT_1", excution_time: 108628, total_script: 125, total_success: 25, total_fail: 15, non_verifying: 1 },
-  { module: "Export", excution_time: 820172, total_script: 150, total_success: 25, total_fail: 15, non_verifying: 0 },
-  { module: "LabelCode", excution_time: 21508, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 0 },
-  { module: "LanguagesAdmin", excution_time: 68386, total_script: 25, total_success: 25, total_fail: 15, non_verifying: 5 },
-  { module: "ModelsApplications", excution_time: 186215, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 8 },
-  { module: "NewForm", excution_time: 8601227, total_script: 800, total_success: 25, total_fail: 15, non_verifying: 1 }
-];
+
 
 // 🔥 icon + class mapping
 function getStatusUI(status) {
@@ -260,6 +360,8 @@ window.addEventListener("DOMContentLoaded", () => {
     generateModuleTable(moduleData, "moduleTableBody");
   }
 
+
+  updateChartStats(moduleData);
 });
 
 
@@ -305,3 +407,7 @@ function formatDuration(ms) {
 
   return `${hours}h ${minutes}m ${seconds}s`;
 }
+
+
+
+
