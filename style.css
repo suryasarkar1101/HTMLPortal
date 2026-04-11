@@ -445,6 +445,11 @@ td {
     margin-right: 8px;
 }
 
+.non-icon {
+    color: #FFA500;
+    margin-right: 8px;
+}
+
 /* Badges */
 .badge {
     padding: 4px 10px;
@@ -452,21 +457,6 @@ td {
     font-size: 12px;
     font-weight: bold;
 }
-
-/* .pass {
-    background: rgba(34, 197, 94, 0.2);
-    color: #22c55e;
-}
-
-.fail {
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
-}
-
-.skip {
-    background: rgba(245, 158, 11, 0.2);
-    color: #f59e0b;
-} */
 
 .badge.pass {
     background: rgba(34, 197, 94, 0.15);
@@ -481,6 +471,12 @@ td {
 .badge.skip {
     background: rgba(245, 158, 11, 0.15);
     color: #f59e0b;
+}
+
+.badge.non {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+   
 }
 
 /* No res.full-menuts row */

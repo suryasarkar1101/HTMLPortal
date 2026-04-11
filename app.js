@@ -13,21 +13,99 @@ const testData = [
   { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: "00:00:29" },
   { id: "TC_013", desc: "Social media links", status: "skipped", duration: "00:00:00" }
 ];
+// window.moduleData = [
+//   { module: "AdWeb_Audit", excution_time: 72781, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 0 },
+//   { module: "AdWeb_BusinessViews", excution_time: 321321, total_script: 65, total_success: 25, total_fail: 15, non_verifying: 2 },
+//   { module: "AdWeb_CoreModelsExport", excution_time: 261959, total_script: 175, total_success: 25, total_fail: 15, non_verifying: 3 },
+//   { module: "AdWeb_CoreModelsImport", excution_time: 492654, total_script: 60, total_success: 25, total_fail: 15, non_verifying: 1 },
+//   { module: "DLLUtils_AAC", excution_time: 13251, total_script: 12, total_success: 25, total_fail: 15, non_verifying: 5 },
+//   { module: "DLLUtils_AAD", excution_time: 152794, total_script: 85, total_success: 25, total_fail: 15, non_verifying: 1 },
+//   { module: "DLLUtils_MM", excution_time: 175992, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 2 },
+//   { module: "DLLUtils_MT_1", excution_time: 108628, total_script: 125, total_success: 25, total_fail: 15, non_verifying: 1 },
+//   { module: "Export", excution_time: 820172, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 0 },
+//   { module: "LabelCode", excution_time: 21508, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 0 },
+//   { module: "LanguagesAdmin", excution_time: 68386, total_script: 25, total_success: 25, total_fail: 15, non_verifying: 5 },
+//   { module: "ModelsApplications", excution_time: 186215, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 8 },
+//   { module: "NewForm", excution_time: 8601227, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 1 }
+// ];
+
 window.moduleData = [
-  { module: "AdWeb_Audit", excution_time: 72781, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 0 },
-  { module: "AdWeb_BusinessViews", excution_time: 321321, total_script: 65, total_success: 25, total_fail: 15, non_verifying: 2 },
-  { module: "AdWeb_CoreModelsExport", excution_time: 261959, total_script: 175, total_success: 25, total_fail: 15, non_verifying: 3 },
-  { module: "AdWeb_CoreModelsImport", excution_time: 492654, total_script: 60, total_success: 25, total_fail: 15, non_verifying: 1 },
-  { module: "DLLUtils_AAC", excution_time: 13251, total_script: 12, total_success: 25, total_fail: 15, non_verifying: 5 },
-  { module: "DLLUtils_AAD", excution_time: 152794, total_script: 85, total_success: 25, total_fail: 15, non_verifying: 1 },
-  { module: "DLLUtils_MM", excution_time: 175992, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 2 },
-  { module: "DLLUtils_MT_1", excution_time: 108628, total_script: 125, total_success: 25, total_fail: 15, non_verifying: 1 },
-  { module: "Export", excution_time: 820172, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 0 },
-  { module: "LabelCode", excution_time: 21508, total_script: 54, total_success: 25, total_fail: 15, non_verifying: 0 },
-  { module: "LanguagesAdmin", excution_time: 68386, total_script: 25, total_success: 25, total_fail: 15, non_verifying: 5 },
-  { module: "ModelsApplications", excution_time: 186215, total_script: 50, total_success: 25, total_fail: 15, non_verifying: 8 },
-  { module: "NewForm", excution_time: 8601227, total_script: 80, total_success: 25, total_fail: 15, non_verifying: 1 }
+  {
+    module: "AdWeb_Audit",
+    excution_time: 72781,
+    total_script: 3,
+    total_success: 2,
+    total_fail: 1,
+    non_verifying: 0,
+    tests: [
+      { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: "00:00:28" },
+      { id: "TC_002", desc: "Logout", status: "passed", duration: "00:00:19" },
+      { id: "TC_003", desc: "Invalid password", status: "failed", duration: "00:00:31" }
+    ]
+  },
+  {
+    module: "AdWeb_BusinessViews",
+    excution_time: 321321,
+    total_script: 4,
+    total_success: 1,
+    total_fail: 1,
+    non_verifying: 2,
+    tests: [
+      { id: "TC_004", desc: "Add to cart", status: "passed", duration: "00:00:24" },
+      { id: "TC_005", desc: "Checkout", status: "failed", duration: "00:00:47" },
+      { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: "00:00:31" }
+    ]
+  },
+  {
+    module: "AdWeb_CoreModelsExport",
+    excution_time: 261959,
+    total_script: 5,
+    total_success: 2,
+    total_fail: 0,
+    non_verifying: 3,
+    tests: [
+      { id: "TC_006", desc: "Sort products by price", status: "passed", duration: "00:00:22" },
+      { id: "TC_007", desc: "View product details", status: "passed", duration: "00:00:18" }
+    ]
+  },
+  {
+    module: "AdWeb_CoreModelsImport",
+    excution_time: 492654,
+    total_script: 3,
+    total_success: 2,
+    total_fail: 0,
+    non_verifying: 1,
+    tests: [
+      { id: "TC_008", desc: "Remove item from cart", status: "passed", duration: "00:00:33" },
+      { id: "TC_009", desc: "Continue shopping after cart", status: "passed", duration: "00:00:27" }
+    ]
+  },
+  {
+    module: "DLLUtils_AAC",
+    excution_time: 13251,
+    total_script: 7,
+    total_success: 2,
+    total_fail: 0,
+    non_verifying: 5,
+    tests: [
+      { id: "TC_010", desc: "Fill checkout information", status: "passed", duration: "00:00:41" },
+      { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: "00:00:36" }
+    ]
+  },
+  {
+    module: "DLLUtils_AAD",
+    excution_time: 152794,
+    total_script: 3,
+    total_success: 2,
+    total_fail: 0,
+    non_verifying: 1,
+    tests: [
+      { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: "00:00:29" },
+      { id: "TC_013", desc: "Social media links", status: "skipped", duration: "00:00:00" }
+    ]
+  }
 ];
+
 
 function updateChartStats(moduleData) {
   let totalTime = 0;
@@ -312,7 +390,17 @@ function getStatusUI(status) {
       badge: "badge fail",
       text: "Failed"
     };
-  } else {
+
+  }
+  else if (status === "non_verifying") {
+    return {
+      icon: "fa-solid fa-triangle-exclamation non-icon",
+      badge: "badge non",
+      text: "Non-Verifying"
+    };
+
+  }
+  else {
     return {
       icon: "fa-circle-minus skip-icon",
       badge: "badge skip",
@@ -366,11 +454,17 @@ window.addEventListener("DOMContentLoaded", () => {
   // ================== TESTCASES PAGE ==================
   if (selectedModule && testTable) {
 
-    // 👉 pass TRUE here
+    const title = document.getElementById("reportTitle");
+
+    if (title) {
+      title.innerText = selectedModule.module;
+    }
+
+    // 🔥 ADD THIS (YOU MISSED THIS)
     renderCards([selectedModule], true);
 
-    const filteredTests = testData.slice(0, selectedModule.total_script);
-    generateTable(filteredTests);
+    // 👉 table
+    generateTable(selectedModule.tests || []);
   }
 
   // ================== DASHBOARD PAGE ==================
