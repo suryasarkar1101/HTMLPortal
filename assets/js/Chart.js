@@ -26,7 +26,7 @@ function getChartData(moduleData) {
 }
 
 
-window.addEventListener('DOMContentLoaded', () => {
+function updateChartStats(moduleData) {
   const canvas = document.getElementById('donutChart');
   if (!canvas) return;
 
@@ -133,7 +133,7 @@ window.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(() => {
     donutChart = new Chart(ctx, config);
   });
-});
+};
 
 document.querySelectorAll('.theme-btn').forEach(btn => {
   btn.addEventListener('click', () => {
