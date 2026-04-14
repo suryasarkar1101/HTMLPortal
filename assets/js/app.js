@@ -180,8 +180,11 @@ bottomThemeSwitcher.addEventListener('click', () => {
 // Restore saved theme on load
 window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('selectedTheme');
-  if (saved) {
+  const availableThemes = Array.from(themeBtns).map(btn => btn.getAttribute('data-theme'));
+  if (saved && availableThemes.includes(saved)) {
     applyTheme(saved);
+  } else if (availableThemes.length > 0) {
+    applyTheme(availableThemes[0]); // fallback to first theme if invalid
   }
 });
 
@@ -432,6 +435,7 @@ function generateTable(data) {
 
     const row = document.createElement("tr");
     row.setAttribute("data-status", test.status);
+    row.setAttribute("class", "data-row");
 
     row.innerHTML = `
       <td>
@@ -505,6 +509,7 @@ function generateModuleTable(data, tableBodyId) {
 
   data.forEach(item => {
     const row = document.createElement("tr");
+    row.setAttribute("class", "data-row");
 
     row.innerHTML = `
       <td><strong>${item.module}</strong></td>

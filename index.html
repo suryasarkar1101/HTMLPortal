@@ -6,7 +6,12 @@
   <title>Selenium Report</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="themes/black.css" id="theme-style">
+  <link rel="stylesheet" href="assets/css/themes/black.css" id="theme-style">
+  <script>
+    if (localStorage.getItem('selectedTheme') && ['black', 'blue', 'white'].includes(localStorage.getItem('selectedTheme'))) {
+      document.getElementById('theme-style').href = 'assets/css/themes/' + localStorage.getItem('selectedTheme') + '.css';
+    }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>

@@ -39,7 +39,7 @@ td {
     border-bottom: 2px solid rgb(25, 26, 30);
 }
 
-tbody tr:hover {
+.data-row:hover {
     background: rgba(14, 14, 14);
 }
 

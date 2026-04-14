@@ -679,21 +679,14 @@ td {
     /* border-bottom: 2px solid #334155; */
 }
 
-.modern-table th:nth-child(1) {
-    width: 5%;
-}
-
 /* Rows */
 .modern-table tbody tr {
     border-bottom: 1px solid #2d3748;
     transition: 0.2s ease;
 }
 
-.modern-table tbody tr:hover {
-    background: rgba(59, 130, 246, 0.08);
-}
-
-tbody tr:hover {
+.data-row:hover {
+    background: rgba(59, 130, 246, 0.08);    
     cursor: pointer;
 }
 
