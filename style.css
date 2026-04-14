@@ -693,6 +693,10 @@ td {
     background: rgba(59, 130, 246, 0.08);
 }
 
+tr:hover {
+    cursor: pointer;
+}
+
 /* Cells */
 .modern-table td {
     padding: 14px 18px;
@@ -747,4 +751,12 @@ td {
 .badge-neutral {
     background: rgba(148, 163, 184, 0.15);
     color: #94a3b8;
+}
+.no-results{
+    cursor: default !important;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #38bdf8;
 }

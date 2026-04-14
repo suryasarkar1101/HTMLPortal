@@ -11,9 +11,10 @@ const redGradient = ctx.createLinearGradient(0, 0, 0, 200);
 redGradient.addColorStop(0, 'rgba(239, 68, 68, 1)');
 redGradient.addColorStop(1, 'rgba(239, 68, 68, 0.4)');
 
-const yellowGradient = ctx.createLinearGradient(0, 0, 0, 200);
-yellowGradient.addColorStop(0, 'rgba(234, 179, 8, 1)');
-yellowGradient.addColorStop(1, 'rgba(234, 179, 8, 0.4)');
+// Not Need to display Non-Verifying in chart, All Non-Verifiing are Passed Scripts
+// const yellowGradient = ctx.createLinearGradient(0, 0, 0, 200);
+// yellowGradient.addColorStop(0, 'rgba(234, 179, 8, 1)');
+// yellowGradient.addColorStop(1, 'rgba(234, 179, 8, 0.4)');
 
 // 🟣 Violet (New 4th color)
 const violetGradient = ctx.createLinearGradient(0, 0, 0, 200);
@@ -29,20 +30,18 @@ function getFontColor() {
 function getChartData(moduleData) {
   let totalSuccess = 0;
   let totalFail = 0;
-  let nonVerifying = 0;
   let totalScripts = 0;
 
   moduleData.forEach(item => {
     totalSuccess += item.total_success;
     totalFail += item.total_fail;
-    nonVerifying += item.non_verifying;
     totalScripts += item.total_script;
   });
 
   // Remaining (not counted in above)
-  const others = totalScripts - (totalSuccess + totalFail + nonVerifying);
+  const others = totalScripts - (totalSuccess + totalFail);
 
-  return [totalSuccess, totalFail, nonVerifying, others];
+  return [totalSuccess, totalFail, others];
 }
 
 
@@ -54,19 +53,17 @@ window.addEventListener('DOMContentLoaded', () => {
   Chart.defaults.color = fontColor;
 
   const data = {
-    labels: [' Passed', ' Failed', ' Non-Verifying ', ' Skipped',],
+    labels: [' Passed', ' Failed', ' Skipped',],
     datasets: [{
       data: dynamicChartData,
       backgroundColor: [
         greenGradient,
         redGradient,
-        yellowGradient,
         violetGradient
       ],
       borderColor: [
         'rgba(34, 197, 94, 1)',
         'rgba(239, 68, 68, 1)',
-        'rgba(234, 179, 8, 1)',
         'rgba(139, 92, 246, 1)'
       ],
       borderWidth: 1

@@ -47,7 +47,7 @@ window.moduleData = [
     module: "AdWeb_BusinessViews",
     excution_time: 321321,
     total_script: 4,
-    total_success: 1,
+    total_success: 3,
     total_fail: 1,
     non_verifying: 2,
     tests: [
@@ -133,7 +133,6 @@ function updateChartStats(moduleData) {
   document.getElementById("avgTest").innerText = formattedAvgTime;
   document.getElementById("successRate").innerText = successRate;
 }
-
 
 
 
@@ -243,27 +242,32 @@ function calculateDashboardData(moduleData) {
   let totalTests = 0;
   let totalPassed = 0;
   let totalFailed = 0;
+  let totalNonVerifying = 0;
   let totalTime = 0;
 
   moduleData.forEach(item => {
     totalTests += item.total_script;
     totalPassed += item.total_success;
     totalFailed += item.total_fail;
+    totalNonVerifying += item.non_verifying;
     totalTime += item.excution_time;
   });
 
   // % calculations
   const successRate = ((totalPassed / totalTests) * 100).toFixed(1);
   const failRate = ((totalFailed / totalTests) * 100).toFixed(1);
+  const nonVerifyingRate = ((totalNonVerifying / totalTests) * 100).toFixed(1);
 
   return {
     totalModules,
     totalTests,
     totalPassed,
     totalFailed,
+    totalNonVerifying,
     totalTime,
     successRate,
-    failRate
+    failRate,
+    nonVerifyingRate
   };
 }
 
@@ -301,8 +305,15 @@ function getCardData(moduleData) {
       className: "red"
     },
     {
+      title: "NON-VERIFYING",
+      value: data.totalNonVerifying,
+      subtitle: `${data.nonVerifyingRate}% Non-Verifying`,
+      icon: "fa-solid fa-triangle-exclamation",
+      className: "yellow"
+    },
+    {
       title: "DURATION",
-      value: formatDuration(data.totalTime),
+      value: formatDuration(data.totalTime, false),
       subtitle: "Total Execution Time",
       icon: "fa-regular fa-clock",
       className: "blue"
@@ -340,6 +351,9 @@ function renderCards(data, isTestcasePage = false) {
   // 🔥 Remove "TOTAL MODULE" card in testcase page
   if (isTestcasePage) {
     dynamicCardData = dynamicCardData.filter(card => card.title !== "TOTAL MODULE");
+  }else {
+    // 🔥 For dashboard, we want to show all cards excepts Non Verifing 
+    dynamicCardData = dynamicCardData.filter(card => card.title !== "NON-VERIFYING");
   }
 
   dynamicCardData.forEach(card => {
@@ -457,7 +471,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementById("reportTitle");
 
     if (title) {
-      title.innerText = selectedModule.module;
+      title.innerText = `Test Execution Results of ${selectedModule.module}`;
     }
 
     // 🔥 ADD THIS (YOU MISSED THIS)
@@ -483,12 +497,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// updateChartStats(moduleData);
 //=========================================== Module Table ==================
-
-
-
-
 
 function generateModuleTable(data, tableBodyId) {
   const tbody = document.getElementById(tableBodyId);
@@ -503,11 +512,10 @@ function generateModuleTable(data, tableBodyId) {
       <td>${item.total_script}</td>
       <td style="color:#22c55e;">${item.total_success}</td>
       <td style="color:#ef4444;">${item.total_fail}</td>
-      <td>${item.non_verifying}</td>
+      <td style="color:#f59e0b;">${item.non_verifying}</td>
     `;
 
     // 🔥 ADD THIS (IMPORTANT)
-    row.style.cursor = "pointer";
     row.addEventListener("click", () => {
       localStorage.setItem("selectedModule", JSON.stringify(item));
       window.location.href = "testcases.html";
@@ -517,15 +525,18 @@ function generateModuleTable(data, tableBodyId) {
   });
 }
 
-function formatDuration(ms) {
+function formatDuration(ms, includeSec = true) {
   let seconds = Math.floor(ms / 1000);
   let minutes = Math.floor(seconds / 60);
   let hours = Math.floor(minutes / 60);
 
   seconds = seconds % 60;
   minutes = minutes % 60;
-
-  return `${hours}h ${minutes}m ${seconds}s`;
+  if (includeSec) {
+    return `${hours}h ${minutes}m ${seconds}s`;
+  }else {
+    return `${hours}h ${minutes}m`;
+  }
 }
 
 

@@ -72,7 +72,6 @@ td {
 
 tbody tr:hover {
   background: #f8fafc;
-  cursor: pointer;
 }
 
 .tabledata-header {
