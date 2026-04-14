@@ -148,7 +148,7 @@ function getActiveThemeBtn() {
 
 // Apply a theme
 function applyTheme(theme) {
-  themeLink.setAttribute('href', "themes/" + theme + ".css");
+  themeLink.setAttribute('href', "assets/css/themes/" + theme + ".css");
 
   themeBtns.forEach(btn => btn.classList.remove('active'));
   const btn = document.querySelector(`.theme-btn[data-theme="${theme}"]`);
@@ -187,10 +187,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 // ─── Table Filter (Search + Status) ──────────────────────────────
-function filterTable() {
+function filterTable(tableBodyId, colspan, includeStatus = false) {
   const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
-  const statusVal = document.getElementById('statusFilter').value.toLowerCase();
-  const rows = document.querySelectorAll('#testTableBody tr');
+  const statusVal = includeStatus ? document.getElementById('statusFilter').value.toLowerCase() : 'all';
+  const rows = document.querySelectorAll(`#${tableBodyId} tr`);
 
   let visibleCount = 0;
 
@@ -217,10 +217,10 @@ function filterTable() {
 
   // Show "no results" message if nothing matches
   if (visibleCount === 0) {
-    const tbody = document.getElementById('testTableBody');
+    const tbody = document.getElementById(tableBodyId);
     const emptyRow = document.createElement('tr');
     emptyRow.className = 'no-results';
-    emptyRow.innerHTML = `<td colspan="4">No tests match your search.</td>`;
+    emptyRow.innerHTML = `<td colspan="${colspan}">No ${tableBodyId.includes('test') ? 'tests' : 'modules'} match your search.</td>`;
     tbody.appendChild(emptyRow);
   }
 }

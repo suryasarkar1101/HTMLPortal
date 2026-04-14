@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <title>Selenium Report</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="themes/black.css" id="theme-style">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/themes/black.css" id="theme-style">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -73,10 +73,10 @@
           <div class="tabledata-title"><i class="fa-solid fa-microscope"></i> Test Results</div>
           <div class="tabledata-actions">
             <div class="tabledata-search-box">
-              <input type="text" id="searchInput" placeholder="Search tests..." oninput="filterTable()">
+              <input type="text" id="searchInput" placeholder="Search tests..." oninput="filterTable('testTableBody', 4, true)">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <select id="statusFilter" onchange="filterTable()">
+            <select id="statusFilter" onchange="filterTable('testTableBody', 4, true)">
               <option value="all">All Status</option>
               <option value="passed">Passed</option>
               <option value="failed">Failed</option>
@@ -101,8 +101,8 @@
 
     </div>
   </div>
-  <script src="app.js"></script>
-  <script src="Chart.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/Chart.js"></script>
 </body>
 
 </html>
