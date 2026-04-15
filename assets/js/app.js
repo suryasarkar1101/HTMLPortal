@@ -88,7 +88,7 @@ async function loadModuleData() {
 }
 
 
-function updateChartStats(moduleData) {
+function updateChartStatsdashboard(moduleData) {
   let totalTime = 0;
   let totalTests = 0;
   let totalSuccess = 0;
@@ -454,7 +454,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   // ================== TESTCASES PAGE ==================
   if (selectedModule && testTable) {
 
-    const title = document.getElementById("reportTitle");
+    const title = document.getElementById("testSuiteName");
 
     if (title) {
       title.innerText = `Test Execution Results of ${selectedModule.module}`;
@@ -478,6 +478,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     renderCards(window.moduleData);
 
     updateChartStats(window.moduleData);
+    updateChartStatsdashboard(window.moduleData);
   }
 
 });
