@@ -755,3 +755,147 @@ td {
     color: #94a3b8;
     text-transform: capitalize;
 }
+
+
+/* ================== LAYOUT ================== */
+.main-content {
+  display: flex;
+  gap: 20px;
+  padding-top: 0.8rem;
+  height: calc(100vh - 302px); /* adjust based on header/cards */
+}
+
+/* Left Table */
+.left-table-section {
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Right Panel */
+.side-panel {
+  width: 40%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-y: auto;
+  position: relative;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ================== EMPTY STATE ================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.empty-state i {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* ================== ROW ACTIVE ================== */
+.data-row.active {
+  background: rgba(59, 130, 246, 0.15);
+  transition: 0.2s;
+}
+
+/* ================== SUMMARY ================== */
+.test-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.summary-box {
+  background: #e5e7eb;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Status Colors */
+.summary-box.passed {
+  color: #22c55e;
+}
+
+.summary-box.failed {
+  color: #ef4444;
+}
+
+.summary-box.skipped {
+  color: #f59e0b;
+}
+
+.summary-box.non {
+  color: #eab308;
+}
+
+/* ================== STEPS ================== */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+/* Passed Step */
+.step-pass {
+  background: rgba(34, 197, 94, 0.2);
+  color: #14532d;
+}
+
+/* Failed Step */
+.step-fail {
+  background: rgba(239, 68, 68, 0.25);
+  color: #7f1d1d;
+}
+
+/* Hover Effect */
+.step-item:hover {
+  transform: scale(1.01);
+}
+
+/* Icon */
+.step-icon {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* ================== ANIMATION ================== */
+#detailContent {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

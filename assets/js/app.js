@@ -17,9 +17,9 @@ async function loadModuleData() {
         total_fail: 1,
         non_verifying: 0,
         tests: [
-          { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: "00:00:28" },
-          { id: "TC_002", desc: "Logout", status: "passed", duration: "00:00:19" },
-          { id: "TC_003", desc: "Invalid password", status: "failed", duration: "00:00:31" }
+          { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: 28},
+          { id: "TC_002", desc: "Logout", status: "passed", duration: 19},
+          { id: "TC_003", desc: "Invalid password", status: "failed", duration: 31 }
         ]
       },
       {
@@ -30,9 +30,9 @@ async function loadModuleData() {
         total_fail: 1,
         non_verifying: 2,
         tests: [
-          { id: "TC_004", desc: "Add to cart", status: "passed", duration: "00:00:24" },
-          { id: "TC_005", desc: "Checkout", status: "failed", duration: "00:00:47" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: "00:00:31" }
+          { id: "TC_004", desc: "Add to cart", status: "passed", duration: 24 },
+          { id: "TC_005", desc: "Checkout", status: "failed", duration: 47 },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31}
         ]
       },
       {
@@ -43,8 +43,8 @@ async function loadModuleData() {
         total_fail: 0,
         non_verifying: 3,
         tests: [
-          { id: "TC_006", desc: "Sort products by price", status: "passed", duration: "00:00:22" },
-          { id: "TC_007", desc: "View product details", status: "passed", duration: "00:00:18" }
+          { id: "TC_006", desc: "Sort products by price", status: "passed", duration: 22 },
+          { id: "TC_007", desc: "View product details", status: "passed", duration: 18 }
         ]
       },
       {
@@ -55,8 +55,8 @@ async function loadModuleData() {
         total_fail: 0,
         non_verifying: 1,
         tests: [
-          { id: "TC_008", desc: "Remove item from cart", status: "passed", duration: "00:00:33" },
-          { id: "TC_009", desc: "Continue shopping after cart", status: "passed", duration: "00:00:27" }
+          { id: "TC_008", desc: "Remove item from cart", status: "passed", duration: 33 },
+          { id: "TC_009", desc: "Continue shopping after cart", status: "passed", duration: 27 }
         ]
       },
       {
@@ -67,8 +67,8 @@ async function loadModuleData() {
         total_fail: 0,
         non_verifying: 5,
         tests: [
-          { id: "TC_010", desc: "Fill checkout information", status: "passed", duration: "00:00:41" },
-          { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: "00:00:36" }
+          { id: "TC_010", desc: "Fill checkout information", status: "passed", duration: 41 },
+          { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: 36 }
         ]
       },
       {
@@ -79,8 +79,8 @@ async function loadModuleData() {
         total_fail: 0,
         non_verifying: 1,
         tests: [
-          { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: "00:00:29" },
-          { id: "TC_013", desc: "Social media links", status: "skipped", duration: "00:00:00" }
+          { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: 29 },
+          { id: "TC_013", desc: "Social media links", status: "skipped", duration: 12 }
         ]
       }
     ];
@@ -335,7 +335,7 @@ function renderCards(data, isTestcasePage = false) {
   // 🔥 Remove "TOTAL MODULE" card in testcase page
   if (isTestcasePage) {
     dynamicCardData = dynamicCardData.filter(card => card.title !== "TOTAL MODULE");
-  }else {
+  } else {
     // 🔥 For dashboard, we want to show all cards excepts Non Verifing 
     dynamicCardData = dynamicCardData.filter(card => card.title !== "NON-VERIFYING");
   }
@@ -415,6 +415,10 @@ function generateTable(data) {
     const ui = getStatusUI(test.status);
 
     const row = document.createElement("tr");
+
+    row.addEventListener("click", () => {
+      openModal(test, row);
+    });
     row.setAttribute("data-status", test.status);
     row.setAttribute("class", "data-row");
 
@@ -433,7 +437,7 @@ function generateTable(data) {
       </td>
 
       <td>
-        ${test.duration}
+        ${formatDuration(test.duration*1000)}
       </td>
       
     `;
@@ -492,6 +496,7 @@ function generateModuleTable(data, tableBodyId) {
 
   data.forEach(item => {
     const row = document.createElement("tr");
+
     row.setAttribute("class", "data-row");
 
     row.innerHTML = `
@@ -522,11 +527,77 @@ function formatDuration(ms, includeSec = true) {
   minutes = minutes % 60;
   if (includeSec) {
     return `${hours}h ${minutes}m ${seconds}s`;
-  }else {
+  } else {
     return `${hours}h ${minutes}m`;
   }
 }
 
+
+function openModal(test, rowElement) {
+  // Show content, hide empty state
+  document.getElementById("emptyState").style.display = "none";
+  document.getElementById("detailContent").style.display = "block";
+
+  // Remove previous active row
+  document.querySelectorAll(".data-row").forEach(r => r.classList.remove("active"));
+
+  // Highlight current row
+  if (rowElement) {
+    document.querySelectorAll(".data-row").forEach(r => r.classList.remove("active"));
+    rowElement.classList.add("active");
+  }
+
+  const steps = test.steps || [
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" }
+  ];
+
+  const status = test.status; // from table
+
+  // Summary
+  document.getElementById("sumId").innerText = test.id;
+  document.getElementById("sumSteps").innerText = steps.length + " Steps";
+
+  const statusEl = document.getElementById("sumStatus");
+  statusEl.innerText = status.charAt(0).toUpperCase() + status.slice(1);
+
+  // reset classes
+  statusEl.className = "summary-box";
+
+  // apply correct color
+  if (status === "passed") {
+    statusEl.classList.add("passed");
+  }
+  else if (status === "failed") {
+    statusEl.classList.add("failed");
+  }
+  else if (status === "skipped") {
+    statusEl.classList.add("skipped");
+  }
+  else if (status === "non_verifying") {
+    statusEl.classList.add("non");
+  }
+
+  document.getElementById("sumTime").innerText = formatDuration(test.duration*1000);
+
+  // Steps
+  const container = document.getElementById("stepsContainer");
+  container.innerHTML = "";
+
+  steps.forEach(step => {
+    const isPass = step.status === "pass";
+
+    const div = document.createElement("div");
+    div.className = `step-item ${isPass ? "step-pass" : "step-fail"}`;
+
+    div.innerHTML = `
+      <i class="fa-solid ${isPass ? "fa-check" : "fa-xmark"} step-icon"></i>
+      ${step.text}
+    `;
+
+    container.appendChild(div);
+  });
+}
 
 
 

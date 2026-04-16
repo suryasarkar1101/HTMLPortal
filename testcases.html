@@ -71,44 +71,76 @@
 
       <!-- Charts Section -->
 
+      <div class="main-content">
 
-      <!-- Table -->
-      <div class="table-section">
-        <div class="tabledata-header">
-          <div class="tabledata-title"><i class="fa-solid fa-flask-vial"></i> <span id="testSuiteName">Results of</span>  </div>
-          <div class="tabledata-actions">
-            <div class="tabledata-search-box">
-              <input type="text" id="searchInput" placeholder="Search tests..."
-                oninput="filterTable('testTableBody', 4, true)">
-              <i class="fa-solid fa-magnifying-glass"></i>
+        <!-- Table -->
+        <div class="left-table-section">
+          <div class="tabledata-header">
+            <div class="tabledata-title"><i class="fa-solid fa-flask-vial"></i> <span id="testSuiteName">Results
+                of</span>
             </div>
-            <select id="statusFilter" onchange="filterTable('testTableBody', 4, true)">
-              <option value="all">All Status</option>
-              <option value="passed">Passed</option>
-              <option value="failed">Failed</option>
-              <option value="non_verifying">Non-Verifying</option>
-              <option value="skipped">Skipped</option>
-            </select>
+            <div class="tabledata-actions">
+              <div class="tabledata-search-box">
+                <input type="text" id="searchInput" placeholder="Search tests..."
+                  oninput="filterTable('testTableBody', 4, true)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <select id="statusFilter" onchange="filterTable('testTableBody', 4, true)">
+                <option value="all">All Status</option>
+                <option value="passed">Passed</option>
+                <option value="failed">Failed</option>
+                <option value="non_verifying">Non-Verifying</option>
+                <option value="skipped">Skipped</option>
+              </select>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Test Name</th>
+                <th>Test Description</th>
+                <th>Status</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody id="testTableBody"></tbody>
+          </table>
+        </div>
+
+        <!-- RIGHT: DETAILS PANEL -->
+        <div id="sideModal" class="side-panel">
+
+          <div id="emptyState" class="empty-state">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>No test is selected</p>
+          </div>
+
+          <div id="detailContent" style="display:none;">
+            <div>
+              <p>gggggg</p>
+            </div>
+            <!-- Summary -->
+            <div class="test-summary">
+              <div class="summary-box" id="sumId"></div>
+              <div class="summary-box" id="sumSteps"></div>
+              <div class="summary-box" id="sumStatus"></div>
+              <div class="summary-box" id="sumTime"></div>
+            </div>
+
+            <!-- Steps -->
+            <div id="stepsContainer" class="steps-container"></div>
+
           </div>
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Test Name</th>
-              <th>Test Description</th>
-              <th>Status</th>
-              <th>Duration</th>
-            </tr>
-          </thead>
-          <tbody id="testTableBody"></tbody>
-        </table>
-      </div>
 
+
+
+      </div>
     </div>
-  </div>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/Chart.js"></script>
+    <script src="assets/js/app.js"></script>
+
 </body>
 
 </html>
