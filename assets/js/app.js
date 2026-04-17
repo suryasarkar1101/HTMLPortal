@@ -17,8 +17,8 @@ async function loadModuleData() {
         total_fail: 1,
         non_verifying: 0,
         tests: [
-          { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: 28},
-          { id: "TC_002", desc: "Logout", status: "passed", duration: 19},
+          { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: 28 },
+          { id: "TC_002", desc: "Logout", status: "passed", duration: 19 },
           { id: "TC_003", desc: "Invalid password", status: "failed", duration: 31 }
         ]
       },
@@ -30,9 +30,9 @@ async function loadModuleData() {
         total_fail: 1,
         non_verifying: 2,
         tests: [
-          { id: "TC_004", desc: "Add to cart", status: "passed", duration: 24 },
-          { id: "TC_005", desc: "Checkout", status: "failed", duration: 47 },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31}
+          { id: "TC_004", desc: "Check the ablity to open TxHourTracking module in window mode", status: "passed", duration: 24 },
+          { id: "TC_005", desc: "Check the scale and pagination when Full horizon is selected in Paging scale dropdown list for scale 1 day slots, grouped by week in the Gantt view window of Contacts/Tasks view", status: "failed", duration: 47 },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 }
         ]
       },
       {
@@ -437,7 +437,7 @@ function generateTable(data) {
       </td>
 
       <td>
-        ${formatDuration(test.duration*1000)}
+        ${formatDuration(test.duration * 1000)}
       </td>
       
     `;
@@ -548,15 +548,38 @@ function openModal(test, rowElement) {
   }
 
   const steps = test.steps || [
+    { text: 'Check the ablity to open TxHourTracking module in window mode"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },  
     { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" }
+    { text: 'Open Navigation Tree', status: "pass" },
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },
+    { text: 'Login Using "Admin"', status: "pass" },
+    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Login Using "Admin"', status: "fail" },
+
   ];
 
   const status = test.status; // from table
 
-  // Summary
-  document.getElementById("sumId").innerText = test.id;
-  document.getElementById("sumSteps").innerText = steps.length + " Steps";
+  // Summary 
+  document.getElementById("sumId").innerText = `#${test.id}`;
+  document.getElementById("sumdes").innerText = test.desc;
+  const totalSteps = steps.length;
+  const passedSteps = steps.filter(step => step.status === "pass").length;
+
+  document.getElementById("sumSteps").innerText =
+    `${passedSteps} steps passed out of ${totalSteps}`;
 
   const statusEl = document.getElementById("sumStatus");
   statusEl.innerText = status.charAt(0).toUpperCase() + status.slice(1);
@@ -578,7 +601,7 @@ function openModal(test, rowElement) {
     statusEl.classList.add("non");
   }
 
-  document.getElementById("sumTime").innerText = formatDuration(test.duration*1000);
+  document.getElementById("sumTime").innerText = formatDuration(test.duration * 1000);
 
   // Steps
   const container = document.getElementById("stepsContainer");
