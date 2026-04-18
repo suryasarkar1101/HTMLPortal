@@ -8,41 +8,70 @@ body {
   border-bottom: 2px solid #e2e8f0;
 }
 
-.report-title { color: #0f172a; }
-.sub-title     { color: #475569; }
-.single-details { color: #334155; }
+.report-title {
+  color: #0f172a;
+}
+
+.sub-title {
+  color: #475569;
+}
+
+.single-details {
+  color: #334155;
+}
 
 .chart-box {
   background: #ffffff;
   border: 2px solid #e2e8f0;
 }
 
-.card-value{
-    color: #f8fafc;
+.card-value {
+  color: #f8fafc;
 }
 
-.chart-title { color: #0f172a; }
-.chart-card  { color: #0f172a; }
-.chart-card-value { color: #0f172a; }
-.chart-card-right { border-left-color: #e2e8f0; }
+.chart-title {
+  color: #0f172a;
+}
+
+.chart-card {
+  color: #0f172a;
+}
+
+.chart-card-value {
+  color: #0f172a;
+}
+
+.chart-card-right {
+  border-left-color: #e2e8f0;
+}
 
 .donut-chart::before {
   background: #ffffff;
 }
 
-.chart-card-center-text { color: #0f172a; }
+.chart-card-center-text {
+  color: #0f172a;
+}
 
 /* Environment rows */
-.env-row { color: #0f172a; }
+.env-row {
+  color: #0f172a;
+}
 
 /* Table */
-.table-section, .left-table-section {
+.table-section,
+.left-table-section,
+.side-panel {
   background: #ffffff;
   border: 2px solid #e2e8f0;
   color: #0f172a;
 }
 
-.tabledata-title { color: #0f172a; }
+
+
+.tabledata-title {
+  color: #0f172a;
+}
 
 .tabledata-search-box {
   background: #f8fafc;
@@ -63,7 +92,9 @@ body {
   color: #0f172a;
 }
 
-thead { color: #475569; }
+thead {
+  color: #475569;
+}
 
 th,
 td {
@@ -79,28 +110,66 @@ td {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #94a3b8, #64748b);
   border-radius: 10px;
   border: 2px solid #f1f5f9;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #64748b, #475569);
 }
-* { scrollbar-width: thin; scrollbar-color: #94a3b8 #f1f5f9; }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 #f1f5f9;
+}
 
 .sidebar {
-  background: #ffffff; /* Pure white background */
-  color: #111; /* Dark text for contrast */
+  background: #ffffff;
+  /* Pure white background */
+  color: #111;
+  /* Dark text for contrast */
   border-right: 2px solid #e2e8f0;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .bottom span {
   color: #aaa;
 }
 
+.side-panel-action {
+  background: #e2e8f0;
+  color: #0f172a;
+}
 
+.test-summary {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
 
+.description-box {
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.summary-title {
+  color: #0f172a;
+}
+
+.summary-box-row {
+  border-color: #e2e8f0;
+}
+
+.summary-box:last-child {
+  border-color: #e2e8f0;
+}

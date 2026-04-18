@@ -17,7 +17,9 @@ body {
     background: rgba(20, 21, 23);
 }
 
-.table-section {
+.table-section,
+.left-table-section,
+.side-panel {
     background: rgba(20, 21, 23);
     border: 2px solid rgb(25, 26, 30);
     color: #e2e8f0;
@@ -72,8 +74,38 @@ td {
 }
 
 .sidebar {
-    background: rgba(20, 21, 23); /* Dark blackish background */
-    color: #fff; /* Keep text white */
+    background: rgba(20, 21, 23);
+    /* Dark blackish background */
+    color: #fff;
+    /* Keep text white */
     border-right: 2px solid rgb(25, 26, 30);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.side-panel-action {
+    background-color: rgb(25, 26, 30);
+    color: #e2e8f0;
+}
+
+.test-summary {
+    background: rgba(14, 14, 14);
+    border-color: rgb(25, 26, 30);
+    color: #e2e8f0;
+}
+
+.description-box {
+    border-color: rgb(25, 26, 30);
+    color: #cacaca;
+}
+
+.summary-title {
+    color: #cacaca;
+}
+
+.summary-box-row {
+    border-color: rgb(25, 26, 30);
+}
+
+.summary-box:last-child {
+    border-color: rgb(25, 26, 30);
 }

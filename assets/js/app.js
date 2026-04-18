@@ -17,9 +17,9 @@ async function loadModuleData() {
         total_fail: 1,
         non_verifying: 0,
         tests: [
-          { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: 28 },
-          { id: "TC_002", desc: "Logout", status: "passed", duration: 19 },
-          { id: "TC_003", desc: "Invalid password", status: "failed", duration: 31 }
+          { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: 28, comment: "Test data test full comment" },
+          { id: "TC_002", desc: "Logout", status: "passed", duration: 19 , comment: "Test data test full comment TC_002" },
+          { id: "TC_003", desc: "Invalid password", status: "failed", duration: 31, comment: "Test data test full comment TC_002" }
         ]
       },
       {
@@ -30,9 +30,10 @@ async function loadModuleData() {
         total_fail: 1,
         non_verifying: 2,
         tests: [
-          { id: "TC_004", desc: "Check the ablity to open TxHourTracking module in window mode", status: "passed", duration: 24 },
-          { id: "TC_005", desc: "Check the scale and pagination when Full horizon is selected in Paging scale dropdown list for scale 1 day slots, grouped by week in the Gantt view window of Contacts/Tasks view", status: "failed", duration: 47 },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 }
+          { id: "TC_004", desc: "Check the ablity to open TxHourTracking module in window mode", status: "passed", duration: 24 , comment: "Test data test full comment TC_001", testBugRef: "24568" },
+          { id: "TC_005", desc: "Check the scale and pagination when Full horizon is selected in Paging scale dropdown list for scale 1 day slots, grouped by week in the Gantt view window of Contacts/Tasks view", status: "failed", duration: 47 , comment: "Test data test full comment TC_002", testBugRef: "24569" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_004", desc: "Invalid password 2", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_004", testBugRef: ""  }
         ]
       },
       {
@@ -423,22 +424,18 @@ function generateTable(data) {
     row.setAttribute("class", "data-row");
 
     row.innerHTML = `
-      <td>
+      <td class="cell-test-id">
         <i class="fa-solid ${ui.icon}"></i>
         <strong>${test.id}</strong>
       </td>
 
-      <td>
-        <strong>${test.desc}</strong>
-      </td>
+      <td class="cell-test-details">${test.desc}</td>
 
-      <td>
+      <td class="cell-test-status">
         <span class="${ui.badge}">${ui.text}</span>
       </td>
 
-      <td>
-        ${formatDuration(test.duration * 1000)}
-      </td>
+      <td class="cell-test-duration">${formatDuration(test.duration * 1000, true, false)}</td>
       
     `;
 
@@ -461,7 +458,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const title = document.getElementById("testSuiteName");
 
     if (title) {
-      title.innerText = `Test Execution Results of ${selectedModule.module}`;
+      title.innerText = `Test Case Results of ${selectedModule.module}`;
     }
 
     // 🔥 ADD THIS (YOU MISSED THIS)
@@ -518,15 +515,18 @@ function generateModuleTable(data, tableBodyId) {
   });
 }
 
-function formatDuration(ms, includeSec = true) {
+function formatDuration(ms, includeSec = true, includeHour = true) {
   let seconds = Math.floor(ms / 1000);
-  let minutes = Math.floor(seconds / 60);
-  let hours = Math.floor(minutes / 60);
+  let fullMinutes = Math.floor(seconds / 60);
+  let hours = Math.floor(fullMinutes / 60);
 
   seconds = seconds % 60;
-  minutes = minutes % 60;
+  let minutes = fullMinutes % 60;
   if (includeSec) {
-    return `${hours}h ${minutes}m ${seconds}s`;
+    if(includeHour)
+      return `${hours}h ${minutes}m ${seconds}s`;
+    else
+      return `${fullMinutes}m ${seconds}s`;
   } else {
     return `${hours}h ${minutes}m`;
   }
@@ -549,23 +549,23 @@ function openModal(test, rowElement) {
 
   const steps = test.steps || [
     { text: 'Check the ablity to open TxHourTracking module in window mode"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
     { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
     { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
     { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
     { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },  
+    { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "fail" },
 
   ];
@@ -573,35 +573,16 @@ function openModal(test, rowElement) {
   const status = test.status; // from table
 
   // Summary 
-  document.getElementById("sumId").innerText = `#${test.id}`;
-  document.getElementById("sumdes").innerText = test.desc;
-  const totalSteps = steps.length;
-  const passedSteps = steps.filter(step => step.status === "pass").length;
+  document.getElementById("testDescrition").innerText = `${test.desc}`;
+  document.getElementById("testID").innerText = `${test.id}`;
 
-  document.getElementById("sumSteps").innerText =
-    `${passedSteps} steps passed out of ${totalSteps}`;
+  document.getElementById("testTotalsteps").innerText = `${steps.length}`;
+  document.getElementById("testComment").innerText = `${test.comment}`;
+  document.getElementById("testBug").innerText = `${test.testBugRef}`;
+  document.getElementById("testDuration").innerText = `${formatDuration(test.duration * 1000, true, false)}`;
+  const ui = getStatusUI(test.status);
+  document.getElementById("testStatus").innerHTML = `<span class="${ui.badge}"><i class="fa-solid ${ui.icon}"></i> ${ui.text}</span>`;
 
-  const statusEl = document.getElementById("sumStatus");
-  statusEl.innerText = status.charAt(0).toUpperCase() + status.slice(1);
-
-  // reset classes
-  statusEl.className = "summary-box";
-
-  // apply correct color
-  if (status === "passed") {
-    statusEl.classList.add("passed");
-  }
-  else if (status === "failed") {
-    statusEl.classList.add("failed");
-  }
-  else if (status === "skipped") {
-    statusEl.classList.add("skipped");
-  }
-  else if (status === "non_verifying") {
-    statusEl.classList.add("non");
-  }
-
-  document.getElementById("sumTime").innerText = formatDuration(test.duration * 1000);
 
   // Steps
   const container = document.getElementById("stepsContainer");

@@ -95,10 +95,10 @@
             </div>
           </div>
 
-          <table>
+          <table class="testcase-table">
             <thead>
               <tr>
-                <th>Test Name</th>
+                <th>Script No.</th>
                 <th>Test Description</th>
                 <th>Status</th>
                 <th>Duration</th>
@@ -109,29 +109,57 @@
         </div>
 
         <!-- RIGHT: DETAILS PANEL -->
-        <div id="sideModal" class="side-panel">
-
-          <div id="emptyState" class="empty-state">
-            <i class="fa-solid fa-circle-info"></i>
-            <p>No test is selected</p>
+        <div class="side-panel">
+          <div class="side-panel-action">
+            <i class="fa-solid fa-up-right-from-square"></i>
           </div>
-
-          <div id="detailContent" style="display:none;">
-            <div class="Description-box">
-              <span class="summary-id" id="sumId"></span>
-              <span class="summary-description" id="sumdes"></span>
+          <div class="side-panel-content">
+            <div id="emptyState" class="empty-state">
+              <i class="fa-solid fa-circle-info"></i>
+              <p>No test is selected</p>
             </div>
-            <!-- Summary -->
-            <div class="test-summary">
-              <div class="summary-box" id="sumId"></div>
-              <div class="summary-box" id="sumSteps"></div>
-              <div class="summary-box" id="sumStatus"></div>
-              <div class="summary-box" id="sumTime"></div>
+            <div id="detailContent" style="display:none;">
+              <!-- Summary -->
+              <div class="test-summary">
+                <div class="description-box">
+                  <div class="summary-id" id="testID"></div>
+                  <span class="summary-description" id="testDescrition"></span>
+                </div>
+                <div class="summary-box-cont">
+                  <div class="summary-box" id="sumSteps">
+                    <div class="summary-box-row">
+                      <span class="summary-box-title"><i class="fa-solid fa-stopwatch"></i>Duration</span>
+                      <span class="summary-box-value" id="testDuration">3s</span>
+                    </div>
+
+                    <div class="summary-box-row">
+                      <span class="summary-box-title"><i class="fa-solid fa-list-ul"></i>Total Steps</span>
+                      <span class="summary-box-value" id="testTotalsteps">5</span>
+                    </div>
+
+                    <div class="summary-box-row">
+                      <span class="summary-box-title"><i class="fa-solid fa-clipboard-question"></i>Status</span>
+                      <span class="summary-box-value" id="testStatus">Failed</span>
+                    </div>
+
+                  </div>
+                  <div class="summary-box">
+                    <div class="summary-box-row">
+                      <span class="summary-box-title"><i class="fa-solid fa-bug-slash"></i>Bug Ref ID</span>
+                      <span class="summary-box-value" id="testBug">BUG-1023</span>
+                    </div>
+                    <div class="summary-box-row no-flex">
+                      <div class="summary-title">Comments</div>
+                      <span id="testComment"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Steps -->
+              <div id="stepsContainer" class="steps-container"></div>
+
             </div>
-
-            <!-- Steps -->
-            <div id="stepsContainer" class="steps-container"></div>
-
           </div>
         </div>
 
