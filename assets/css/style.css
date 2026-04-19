@@ -360,8 +360,8 @@ body {
 .tabledata-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
+    align-items: center;    
+    padding: 10px;
 }
 
 .tabledata-title {
@@ -788,7 +788,6 @@ td {
 /* Left Table */
 .left-table-section {
     flex: 1;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
@@ -798,26 +797,43 @@ td {
 .side-panel {
     width: 40%;
     background: #fff;
-    border-radius: 10px;    
+    border-radius: 10px;
     border: 2px solid #e2e8f0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
-.side-panel-content{
+
+.side-panel-content {
     padding: 10px;
     overflow-y: auto;
     position: relative;
     height: calc(100% - 50px);
 }
-.side-panel-action{
+
+.side-panel-action {
     padding: 5px;
     background-color: #e2e8f0;
-    text-align: right;
     font-size: 12px;
+    display: flex;
+    justify-content: space-between;
 }
-.side-panel-action i{
+
+.side-panel-action i {
     margin-right: 10px;
     cursor: pointer;
+}
+
+.side-action-title {
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.tabledata-body {
+    overflow-y: auto;
+    position: relative;
+    height: calc(100% - 70px);    
+    padding: 10px;
+    padding-top: 0px;
 }
 
 /* ================== EMPTY STATE ================== */
@@ -921,7 +937,8 @@ td {
 .summary-box-row:last-child {
     border-bottom: none;
 }
-.no-flex{
+
+.no-flex {
     display: block !important;
 }
 
@@ -972,7 +989,8 @@ td {
 #detailContent {
     animation: fadeIn 0.3s ease;
 }
-#testBug{
+
+#testBug {
     color: #ef4444;
 }
 

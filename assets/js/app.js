@@ -33,6 +33,17 @@ async function loadModuleData() {
           { id: "TC_004", desc: "Check the ablity to open TxHourTracking module in window mode", status: "passed", duration: 24 , comment: "Test data test full comment TC_001", testBugRef: "24568" },
           { id: "TC_005", desc: "Check the scale and pagination when Full horizon is selected in Paging scale dropdown list for scale 1 day slots, grouped by week in the Gantt view window of Contacts/Tasks view", status: "failed", duration: 47 , comment: "Test data test full comment TC_002", testBugRef: "24569" },
           { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
           { id: "TC_004", desc: "Invalid password 2", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_004", testBugRef: ""  }
         ]
       },
