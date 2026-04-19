@@ -577,6 +577,7 @@ function openModal(test, rowElement) {
     { text: 'Open Navigation Tree', status: "pass" },
     { text: 'Login Using "Admin"', status: "pass" },
     { text: 'Open Navigation Tree', status: "pass" },
+    { text: 'Open Navigation Tree', status: "info" },
     { text: 'Login Using "Admin"', status: "fail" },
 
   ];
@@ -600,13 +601,24 @@ function openModal(test, rowElement) {
   container.innerHTML = "";
 
   steps.forEach(step => {
-    const isPass = step.status === "pass";
-
     const div = document.createElement("div");
-    div.className = `step-item ${isPass ? "step-pass" : "step-fail"}`;
+    let iconEle; 
+    if(step.status=="pass"){
+      div.className = `step-item step-pass`;
+      iconEle=`<i class="fa-solid fa-check step-icon"></i>`;
+    }else if(step.status=="info"){
+      div.className = `step-item step-info`;
+      iconEle=`<i class="fa-solid fa-info step-icon"></i>`;
+    }else if(step.status=="fail"){
+      div.className = `step-item step-fail`;
+      iconEle=`<i class="fa-solid fa-xmark step-icon"></i>`;
+    }else
+    {
+      div.className = `step-item`;
+    }
 
     div.innerHTML = `
-      <i class="fa-solid ${isPass ? "fa-check" : "fa-xmark"} step-icon"></i>
+      ${iconEle}
       ${step.text}
     `;
 
