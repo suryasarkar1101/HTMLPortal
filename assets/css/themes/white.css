@@ -173,3 +173,7 @@ td {
 .summary-box:last-child {
   border-color: #e2e8f0;
 }
+
+.testcase-table thead th {
+  background: #ffffff;
+}

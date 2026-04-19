@@ -426,6 +426,12 @@ thead {
     font-size: 13px;
 }
 
+.testcase-table thead th{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
 .cell-test-details {
     font-weight: 500;
 }

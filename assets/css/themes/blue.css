@@ -17,7 +17,9 @@ body {
     background: rgba(30, 41, 59);
 }
 
-.table-section, .left-table-section, .side-panel {
+.table-section,
+.left-table-section,
+.side-panel {
     background: rgba(30, 41, 59);
     border: 2px solid rgb(22, 30, 43);
     color: #e2e8f0;
@@ -80,6 +82,7 @@ td {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 
 }
+
 .side-panel-action {
     background-color: rgba(59, 130, 246, 0.15);
     color: #e2e8f0;
@@ -87,12 +90,12 @@ td {
 
 .test-summary {
     background: rgba(59, 130, 246, 0.15);
-    border-color:  rgba(15, 23, 42, 1);
+    border-color: rgba(15, 23, 42, 1);
     color: #e2e8f0;
 }
 
 .description-box {
-    border-color:  rgba(15, 23, 42, 1);
+    border-color: rgba(15, 23, 42, 1);
     color: #cacaca;
 }
 
@@ -101,8 +104,13 @@ td {
 }
 
 .summary-box-row {
-    border-color:  rgba(15, 23, 42, 1);
+    border-color: rgba(15, 23, 42, 1);
 }
-.summary-box:last-child{
-    border-color:  rgba(15, 23, 42, 1);
+
+.summary-box:last-child {
+    border-color: rgba(15, 23, 42, 1);
+}
+
+.testcase-table thead th {
+    background: rgba(30, 41, 59);
 }

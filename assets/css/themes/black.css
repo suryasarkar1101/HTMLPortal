@@ -109,3 +109,7 @@ td {
 .summary-box:last-child {
     border-color: rgb(25, 26, 30);
 }
+
+.testcase-table thead th {
+    background: rgba(20, 21, 23);
+}
