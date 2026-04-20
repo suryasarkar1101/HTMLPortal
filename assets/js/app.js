@@ -18,7 +18,7 @@ async function loadModuleData() {
         non_verifying: 0,
         tests: [
           { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: 28, comment: "Test data test full comment" },
-          { id: "TC_002", desc: "Logout", status: "passed", duration: 19 , comment: "Test data test full comment TC_002" },
+          { id: "TC_002", desc: "Logout", status: "passed", duration: 19, comment: "Test data test full comment TC_002" },
           { id: "TC_003", desc: "Invalid password", status: "failed", duration: 31, comment: "Test data test full comment TC_002" }
         ]
       },
@@ -30,21 +30,21 @@ async function loadModuleData() {
         total_fail: 1,
         non_verifying: 2,
         tests: [
-          { id: "TC_004", desc: "Check the ablity to open TxHourTracking module in window mode", status: "passed", duration: 24 , comment: "Test data test full comment TC_001", testBugRef: "24568" },
-          { id: "TC_005", desc: "Check the scale and pagination when Full horizon is selected in Paging scale dropdown list for scale 1 day slots, grouped by week in the Gantt view window of Contacts/Tasks view", status: "failed", duration: 47 , comment: "Test data test full comment TC_002", testBugRef: "24569" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: ""  },
-          { id: "TC_004", desc: "Invalid password 2", status: "non_verifying", duration: 31 , comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_004", testBugRef: ""  }
+          { id: "TC_004", desc: "Check the ablity to open TxHourTracking module in window mode", status: "passed", duration: 24, comment: "Test data test full comment TC_001", testBugRef: "24568" },
+          { id: "TC_005", desc: "Check the scale and pagination when Full horizon is selected in Paging scale dropdown list for scale 1 day slots, grouped by week in the Gantt view window of Contacts/Tasks view", status: "failed", duration: 47, comment: "Test data test full comment TC_002", testBugRef: "24569" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
+          { id: "TC_004", desc: "Invalid password 2", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_004", testBugRef: "" }
         ]
       },
       {
@@ -534,7 +534,7 @@ function formatDuration(ms, includeSec = true, includeHour = true) {
   seconds = seconds % 60;
   let minutes = fullMinutes % 60;
   if (includeSec) {
-    if(includeHour)
+    if (includeHour)
       return `${hours}h ${minutes}m ${seconds}s`;
     else
       return `${fullMinutes}m ${seconds}s`;
@@ -547,7 +547,8 @@ function formatDuration(ms, includeSec = true, includeHour = true) {
 function openModal(test, rowElement) {
   // Show content, hide empty state
   document.getElementById("emptyState").style.display = "none";
-  document.getElementById("detailContent").style.display = "block";
+  const detailContent = document.getElementById("detailContent");
+  if (detailContent) detailContent.style.display = "block";
 
   // Remove previous active row
   document.querySelectorAll(".data-row").forEach(r => r.classList.remove("active"));
@@ -602,18 +603,17 @@ function openModal(test, rowElement) {
 
   steps.forEach(step => {
     const div = document.createElement("div");
-    let iconEle; 
-    if(step.status=="pass"){
+    let iconEle;
+    if (step.status == "pass") {
       div.className = `step-item step-pass`;
-      iconEle=`<i class="fa-solid fa-check step-icon"></i>`;
-    }else if(step.status=="info"){
+      iconEle = `<i class="fa-solid fa-check step-icon"></i>`;
+    } else if (step.status == "info") {
       div.className = `step-item step-info`;
-      iconEle=`<i class="fa-solid fa-info step-icon"></i>`;
-    }else if(step.status=="fail"){
+      iconEle = `<i class="fa-solid fa-info step-icon"></i>`;
+    } else if (step.status == "fail") {
       div.className = `step-item step-fail`;
-      iconEle=`<i class="fa-solid fa-xmark step-icon"></i>`;
-    }else
-    {
+      iconEle = `<i class="fa-solid fa-xmark step-icon"></i>`;
+    } else {
       div.className = `step-item`;
     }
 
@@ -626,5 +626,106 @@ function openModal(test, rowElement) {
   });
 }
 
+function generateModalLeftList(tests) {
+  const container = document.getElementById("modalLeftList");
+  container.innerHTML = "";
+
+  tests.forEach(test => {
+    const ui = getStatusUI(test.status);
+
+    const item = document.createElement("div");
+    item.className = "modal-test-item";
+
+    item.innerHTML = `
+      <i class="fa-solid ${ui.icon}"></i>
+      <span>${test.id}</span>
+    `;
+
+    item.addEventListener("click", () => {
+      loadModalDetail(test, item);
+    });
+
+    container.appendChild(item);
+  });
+}
+
+function loadModalDetail(test, element) {
+  const container = document.getElementById("modalDetailContainer");
+
+  // highlight active
+  document.querySelectorAll(".modal-test-item").forEach(el => el.classList.remove("active"));
+  if (element) element.classList.add("active");
+
+  // ✅ FIRST update original content
+  openModal(test);
+
+  // ✅ THEN clone UPDATED content
+  const detail = document.getElementById("detailContent").cloneNode(true);
+  detail.style.display = "block";
+
+  // ✅ inject into modal
+  container.innerHTML = "";
+  container.appendChild(detail);
+}
+
+
+// ================= FULLSCREEN MODAL =================
+const fullModal = document.getElementById("fullScreenModal");
+const openFullBtn = document.getElementById("openFullScreen");
+const closeFullBtn = document.getElementById("closeFullModal");
+
+const modalLeftList = document.getElementById("modalLeftList");
+const modalDetailContainer = document.getElementById("modalDetailContainer");
+
+let currentTests = []; // store current module tests
+
+// OPEN MODAL
+openFullBtn.addEventListener("click", () => {
+  const detailContent = document.getElementById("detailContent");
+
+  // ❌ No test selected
+  if (detailContent.style.display === "none") return;
+
+  // ✅ Get current module data
+  const selectedModule = JSON.parse(localStorage.getItem("selectedModule"));
+  if (!selectedModule) return;
+
+  currentTests = selectedModule.tests || [];
+
+  // ✅ Set module name
+  const modalTitle = document.getElementById("modalModuleName");
+  if (modalTitle) modalTitle.innerText = selectedModule.module;
+
+  // ✅ Generate LEFT list
+  generateModalLeftList(currentTests);
+
+  // ✅ Load FIRST test by default
+  if (currentTests.length > 0) {
+    loadModalDetail(currentTests[0], document.querySelector(".modal-test-item"));
+  }
+
+  fullModal.style.display = "flex";
+});
+
+
+// CLOSE MODAL
+closeFullBtn.addEventListener("click", () => {
+  fullModal.style.display = "none";
+});
+
+
+// CLICK OUTSIDE CLOSE
+fullModal.addEventListener("click", (e) => {
+  if (e.target === fullModal) {
+    fullModal.style.display = "none";
+  }
+});
+
+// ESC CLOSE
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    fullModal.style.display = "none";
+  }
+});
 
 

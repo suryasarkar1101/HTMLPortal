@@ -112,7 +112,7 @@
         <div class="side-panel">
           <div class="side-panel-action">
             <div class="side-action-title">Test Details</div>
-            <i class="fa-solid fa-up-right-from-square"></i>
+            <i id="openFullScreen" class="fa-solid fa-up-right-from-square"></i>
           </div>
           <div class="side-panel-content">
             <div id="emptyState" class="empty-state">
@@ -168,6 +168,31 @@
 
 
       </div>
+
+<div id="fullScreenModal" class="fullscreen-modal">
+  <div class="fullscreen-content">
+
+    <!-- HEADER -->
+    <div class="modal-header-row">
+      <div class="modal-title">Test Case Results of <span id="modalModuleName"></span></div>
+      <i id="closeFullModal" class="fa-solid fa-xmark close-full-btn"></i>
+    </div>
+
+    <!-- BODY -->
+    <div class="modal-body-layout">
+
+      <!-- LEFT TC LIST -->
+      <div class="modal-left" id="modalLeftList"></div>
+
+      <!-- RIGHT DETAILS -->
+      <div class="modal-right">
+        <div id="modalDetailContainer"></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
     </div>
     <script src="assets/js/app.js"></script>
 

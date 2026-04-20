@@ -1016,3 +1016,68 @@ td {
         transform: translateX(0);
     }
 }
+
+
+.fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* 🔥 Stronger overlay */
+  background: rgba(249, 249, 249, 0.75);
+
+  /* 🔥 THIS is the key fix */
+  backdrop-filter: blur(50px);
+
+  display: none;
+  z-index: 9999;
+}
+
+.fullscreen-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+
+  /* 🔥 Add contrast */
+  /* background: var(--card-bg, #111); */
+
+  padding: 20px;
+  border-radius: 0;
+}
+
+
+.close-full-btn {
+  position: fixed;   /* 🔥 not absolute */
+  top: 5px;
+  right: 25px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+
+.modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.modal-body-layout {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+.modal-left {
+  width: 250px;
+  overflow-y: auto;
+  border-right: 1px solid #333;
+}
+
+.modal-right {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
