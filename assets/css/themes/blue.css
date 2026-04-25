@@ -114,3 +114,29 @@ td {
 .testcase-table thead th {
     background: rgba(30, 41, 59);
 }
+
+.modal-header-row {
+    background: rgba(15, 23, 42, 0.95);
+    border-color: rgba(15, 23, 42, 1);
+}
+
+.modal-left {
+    border-color: rgba(15, 23, 42, 1);
+    background-color: rgba(15, 23, 42, 0.95);
+}
+
+.model-test-action {
+    border-color: rgba(15, 23, 42, 1);
+}
+
+.modal-right {
+    background-color: rgba(30, 41, 59);
+}
+
+.modal-test-item {
+    border-color: rgba(15, 23, 42, 1);
+}
+
+.modal-test-item.active {
+    background-color: rgba(15, 23, 42, 1);
+}

@@ -177,3 +177,28 @@ td {
 .testcase-table thead th {
   background: #ffffff;
 }
+
+.modal-header-row {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+}
+
+.modal-left {
+    border-color:#e2e8f0;
+    background-color: #f1f5f9;
+}
+
+.model-test-action {
+    border-color:#e2e8f0;
+}
+.modal-right {
+    background-color: #fff;
+}
+
+.modal-test-item {
+    border-color:#e2e8f0;
+}
+
+.modal-test-item.active{
+    background-color: #e2e8f0;
+}

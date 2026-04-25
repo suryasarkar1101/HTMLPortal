@@ -111,5 +111,30 @@ td {
 }
 
 .testcase-table thead th {
-    background: rgba(20, 21, 23);
+    background: rgb(20, 21, 23);
+}
+
+.modal-header-row {
+    background: rgb(14, 14, 14);
+    border-color: rgb(25, 26, 30);
+}
+
+.modal-left {
+    border-color:rgb(25, 26, 30);
+    background-color: rgb(14, 14, 14);
+}
+
+.model-test-action {
+    border-color:rgb(25, 26, 30);
+}
+.modal-right {
+    background-color: rgba(20, 21, 23);
+}
+
+.modal-test-item {
+    border-color:rgb(25, 26, 30);
+}
+
+.modal-test-item.active{
+    background-color: rgb(25, 26, 30);
 }

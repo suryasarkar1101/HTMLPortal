@@ -1,105 +1,3 @@
-async function loadModuleData() {
-  try {
-    const response = await fetch('data/moduleData.json');
-    if (!response.ok) {
-      throw new Error('Failed to fetch module data');
-    }
-    window.moduleData = await response.json();
-  } catch (error) {
-    console.error('Error loading module data:', error);
-    // Fallback to hardcoded data if fetch fails
-    window.moduleData = [
-      {
-        module: "AdWeb_Audit",
-        excution_time: 72781,
-        total_script: 3,
-        total_success: 2,
-        total_fail: 1,
-        non_verifying: 0,
-        tests: [
-          { id: "TC_001", desc: "Login with valid credentials", status: "passed", duration: 28, comment: "Test data test full comment" },
-          { id: "TC_002", desc: "Logout", status: "passed", duration: 19, comment: "Test data test full comment TC_002" },
-          { id: "TC_003", desc: "Invalid password", status: "failed", duration: 31, comment: "Test data test full comment TC_002" }
-        ]
-      },
-      {
-        module: "AdWeb_BusinessViews",
-        excution_time: 321321,
-        total_script: 4,
-        total_success: 3,
-        total_fail: 1,
-        non_verifying: 2,
-        tests: [
-          { id: "TC_004", desc: "Check the ablity to open TxHourTracking module in window mode", status: "passed", duration: 24, comment: "Test data test full comment TC_001", testBugRef: "24568" },
-          { id: "TC_005", desc: "Check the scale and pagination when Full horizon is selected in Paging scale dropdown list for scale 1 day slots, grouped by week in the Gantt view window of Contacts/Tasks view", status: "failed", duration: 47, comment: "Test data test full comment TC_002", testBugRef: "24569" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_003", desc: "Invalid password", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_003", testBugRef: "" },
-          { id: "TC_004", desc: "Invalid password 2", status: "non_verifying", duration: 31, comment: "Test data test full comment TC_003", comment: "Test data test full comment TC_004", testBugRef: "" }
-        ]
-      },
-      {
-        module: "AdWeb_CoreModelsExport",
-        excution_time: 261959,
-        total_script: 5,
-        total_success: 2,
-        total_fail: 0,
-        non_verifying: 3,
-        tests: [
-          { id: "TC_006", desc: "Sort products by price", status: "passed", duration: 22 },
-          { id: "TC_007", desc: "View product details", status: "passed", duration: 18 }
-        ]
-      },
-      {
-        module: "AdWeb_CoreModelsImport",
-        excution_time: 492654,
-        total_script: 3,
-        total_success: 2,
-        total_fail: 0,
-        non_verifying: 1,
-        tests: [
-          { id: "TC_008", desc: "Remove item from cart", status: "passed", duration: 33 },
-          { id: "TC_009", desc: "Continue shopping after cart", status: "passed", duration: 27 }
-        ]
-      },
-      {
-        module: "DLLUtils_AAC",
-        excution_time: 13251,
-        total_script: 7,
-        total_success: 2,
-        total_fail: 0,
-        non_verifying: 5,
-        tests: [
-          { id: "TC_010", desc: "Fill checkout information", status: "passed", duration: 41 },
-          { id: "TC_011", desc: "Order confirmation page", status: "passed", duration: 36 }
-        ]
-      },
-      {
-        module: "DLLUtils_AAD",
-        excution_time: 152794,
-        total_script: 3,
-        total_success: 2,
-        total_fail: 0,
-        non_verifying: 1,
-        tests: [
-          { id: "TC_012", desc: "Navigate back from checkout", status: "passed", duration: 29 },
-          { id: "TC_013", desc: "Social media links", status: "skipped", duration: 12 }
-        ]
-      }
-    ];
-  }
-}
-
-
 function updateChartStatsdashboard(moduleData) {
   let totalTime = 0;
   let totalTests = 0;
@@ -559,29 +457,7 @@ function openModal(test, rowElement) {
     rowElement.classList.add("active");
   }
 
-  const steps = test.steps || [
-    { text: 'Check the ablity to open TxHourTracking module in window mode"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Login Using "Admin"', status: "pass" },
-    { text: 'Open Navigation Tree', status: "pass" },
-    { text: 'Open Navigation Tree', status: "info" },
-    { text: 'Login Using "Admin"', status: "fail" },
-
-  ];
+  const steps = test.steps;
 
   const status = test.status; // from table
 
@@ -618,8 +494,13 @@ function openModal(test, rowElement) {
     }
 
     div.innerHTML = `
+      <div class="step-item-title">
       ${iconEle}
       ${step.text}
+      </div>
+      <div class="step-item-body">
+      Expected Result: Value Matched
+      </div>
     `;
 
     container.appendChild(div);
@@ -656,14 +537,14 @@ function loadModalDetail(test, element) {
   document.querySelectorAll(".modal-test-item").forEach(el => el.classList.remove("active"));
   if (element) element.classList.add("active");
 
-  // ✅ FIRST update original content
+  // FIRST update original content
   openModal(test);
 
-  // ✅ THEN clone UPDATED content
+  // THEN clone UPDATED content
   const detail = document.getElementById("detailContent").cloneNode(true);
   detail.style.display = "block";
 
-  // ✅ inject into modal
+  // inject into modal
   container.innerHTML = "";
   container.appendChild(detail);
 }
@@ -675,7 +556,6 @@ const openFullBtn = document.getElementById("openFullScreen");
 const closeFullBtn = document.getElementById("closeFullModal");
 
 const modalLeftList = document.getElementById("modalLeftList");
-const modalDetailContainer = document.getElementById("modalDetailContainer");
 
 let currentTests = []; // store current module tests
 
@@ -683,26 +563,30 @@ let currentTests = []; // store current module tests
 openFullBtn.addEventListener("click", () => {
   const detailContent = document.getElementById("detailContent");
 
-  // ❌ No test selected
+  // No test selected
   if (detailContent.style.display === "none") return;
 
-  // ✅ Get current module data
+  // Get current module data
   const selectedModule = JSON.parse(localStorage.getItem("selectedModule"));
   if (!selectedModule) return;
 
   currentTests = selectedModule.tests || [];
 
-  // ✅ Set module name
+  // Set module name
   const modalTitle = document.getElementById("modalModuleName");
   if (modalTitle) modalTitle.innerText = selectedModule.module;
 
-  // ✅ Generate LEFT list
+  // Generate LEFT list
   generateModalLeftList(currentTests);
 
-  // ✅ Load FIRST test by default
-  if (currentTests.length > 0) {
-    loadModalDetail(currentTests[0], document.querySelector(".modal-test-item"));
-  }
+  // THEN clone UPDATED content
+  const modelcontainer = document.getElementById("modalDetailContainer");
+  const detail = document.getElementById("detailContent").cloneNode(true);
+  detail.style.display = "block";
+
+  // inject into modal
+  modelcontainer.innerHTML = "";
+  modelcontainer.appendChild(detail);
 
   fullModal.style.display = "flex";
 });

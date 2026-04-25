@@ -14,6 +14,7 @@
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/loadData.js"></script>
 </head>
 
 <body>
@@ -169,30 +170,43 @@
 
       </div>
 
-<div id="fullScreenModal" class="fullscreen-modal">
-  <div class="fullscreen-content">
+      <div id="fullScreenModal" class="fullscreen-modal">
+        <div class="fullscreen-content">
 
-    <!-- HEADER -->
-    <div class="modal-header-row">
-      <div class="modal-title">Test Case Results of <span id="modalModuleName"></span></div>
-      <i id="closeFullModal" class="fa-solid fa-xmark close-full-btn"></i>
-    </div>
+          <!-- HEADER -->
+          <div class="modal-header-row">
 
-    <!-- BODY -->
-    <div class="modal-body-layout">
+            <div class="modal-title"><i class="fa-solid fa-flask-vial"></i> Test Case Results of <span
+                id="modalModuleName"></span></div>
+            <i id="closeFullModal" class="fa-solid fa-xmark close-full-btn"></i>
+          </div>
 
-      <!-- LEFT TC LIST -->
-      <div class="modal-left" id="modalLeftList"></div>
+          <!-- BODY -->
+          <div class="modal-body-layout">
 
-      <!-- RIGHT DETAILS -->
-      <div class="modal-right">
-        <div id="modalDetailContainer"></div>
+            <!-- LEFT TC LIST -->
+            <div class="modal-left">
+              <div class="model-test-action">
+                <div class="tabledata-search-box">
+                  <input type="text" id="searchInpuModel" placeholder="Search tests..."
+                    oninput="filterTable('testTableBody', 4, true)">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </div>
+              <div class="model-tests-data" id="modalLeftList">
+                
+              </div>
+            </div>
+
+            <!-- RIGHT DETAILS -->
+            <div class="modal-right">
+              <div id="modalDetailContainer"></div>
+            </div>
+
+          </div>
+
+        </div>
       </div>
-
-    </div>
-
-  </div>
-</div>
     </div>
     <script src="assets/js/app.js"></script>
 
