@@ -139,12 +139,9 @@ document.querySelectorAll('.theme-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     setTimeout(() => {
       if (!donutChart) return;
-
       const newColor = getFontColor();
-
       Chart.defaults.color = newColor;
       donutChart.options.plugins.legend.labels.color = newColor;
-
       donutChart.reset();
       donutChart.update();
     }, 100);
