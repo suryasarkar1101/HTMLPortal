@@ -11,7 +11,7 @@ async function loadModuleData() {
         window.moduleData = [
             {
                 module: "AdWeb_Audit",
-                excution_time: 72781,
+                excution_time: 72.781,
                 total_script: 15,
                 total_success: 2,
                 total_fail: 1,
@@ -90,7 +90,7 @@ async function loadModuleData() {
             },
             {
                 module: "AdWeb_BusinessViews",
-                excution_time: 321321,
+                excution_time: 321.321,
                 total_script: 4,
                 total_success: 3,
                 total_fail: 1,
@@ -447,7 +447,7 @@ async function loadModuleData() {
             },
             {
                 module: "AdWeb_CoreModelsExport",
-                excution_time: 261959,
+                excution_time: 261.959,
                 total_script: 5,
                 total_success: 2,
                 total_fail: 0,
@@ -459,7 +459,7 @@ async function loadModuleData() {
             },
             {
                 module: "AdWeb_CoreModelsImport",
-                excution_time: 492654,
+                excution_time: 492.654,
                 total_script: 3,
                 total_success: 2,
                 total_fail: 0,
@@ -471,7 +471,7 @@ async function loadModuleData() {
             },
             {
                 module: "DLLUtils_AAC",
-                excution_time: 13251,
+                excution_time: 13.251,
                 total_script: 7,
                 total_success: 2,
                 total_fail: 0,
@@ -483,7 +483,7 @@ async function loadModuleData() {
             },
             {
                 module: "DLLUtils_AAD",
-                excution_time: 152794,
+                excution_time: 152.794,
                 total_script: 3,
                 total_success: 2,
                 total_fail: 0,
