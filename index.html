@@ -1,59 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTMLPortal Home</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  <meta charset="UTF-8">
+  <title>Selenium Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/themes/black.css" id="theme-style">
+  <script>
+    if (localStorage.getItem('selectedTheme') && ['black', 'blue', 'white'].includes(localStorage.getItem('selectedTheme'))) {
+      document.getElementById('theme-style').href = 'assets/css/themes/' + localStorage.getItem('selectedTheme') + '.css';
     }
-
-    .container {
-      text-align: center;
-    }
-
-    .nav-btn {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.95rem 1.5rem;
-      font-size: 1rem;
-      border: 2px solid #0077cc;
-      border-radius: 8px;
-      color: #ffffff;
-      background: #0077cc;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.16);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .nav-btn:hover,
-    .nav-btn:focus {
-      background: #005fa3;
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    .headline {
-      margin-bottom: 1.25rem;
-      font-size: 1.5rem;
-      color: #015a8a;
-    }
-  </style>
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/loadData.js"></script>
 </head>
+
 <body>
+
   <div class="container">
-    <h1 class="headline">Select a theme folder</h1>
-    <a class="nav-btn" href="Black/index.html" target="_self">Open Black</a>
-    <a class="nav-btn" href="Blue/index.html" target="_self">Open Blue</a>
-    <a class="nav-btn" href="White/index.html" target="_self">Open White</a>
+    <div class="side-menu-container">
+      <!-- Sidebar Toggle Buttons -->
+      <div id="sidebar" class="sidebar collapsed">
+        <div class="menu-title">
+          <i id="toggleBtn" class="fa-solid fa-bars"></i>
+        </div>
+        <div class="full-menu">
+          <div class="menu-item menu-selected" data-page="index.html">
+            <i class="fa-solid fa-chart-column"></i>
+            <span class="menu-text">Dashboard</span>
+          </div>
+
+          <div class="menu-item" data-page="testcases.html">
+            <i class="fa-solid fa-list-check"></i>
+            <span class="menu-text">Test Cases</span>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <div class="theme-switcher">
+            <button class="theme-btn active" data-theme="black"><span class="theme-dot black-dot"></span></button>
+            <button class="theme-btn" data-theme="blue"><span class="theme-dot blue-dot"></span></button>
+            <button class="theme-btn" data-theme="white"><span class="theme-dot white-dot"></span></button>
+          </div>
+          <div class="menu-version">v <span>1.0</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="body-container">
+      <!-- Header -->
+      <header class="header">
+        <div>
+          <div class="report-title">Custom Selenium Test Report</div>
+          <span class="sub-title">Test Execution Results</span>
+        </div>
+        <div class="header-right">
+          <div class="time-details">
+            <div class="single-details">Date : <span>Apr 3, 2026 10:35 AM</span></div>
+            <div class="single-details">Job Duration : <span>12m 34s</span></div>
+            <div class="single-details">Job Number : <span>53</span></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Summary Cards -->
+
+      <div id="cards-container" class="cards"></div>
+
+      <!-- Charts Section -->
+      <div class="charts">
+
+        <div class="chart-box">
+          <div class="chart-title"><i class="fa-solid fa-chart-pie"></i> Execution Summary</div>
+          <div class="chart-card">
+            <div class="chart-card-left">
+              <canvas id="donutChart"></canvas>
+            </div>
+
+            <div class="chart-card-right">
+              <div class="chart-card-metric">
+                <i class="fa-solid fa-stopwatch"></i>
+                <div>
+                  <div class="chart-card-value" id="totalDuration">00:00</div>
+                  <div class="chart-card-label">Total Duration</div>
+                </div>
+              </div>
+              <div class="chart-card-metric">
+                <i class="fa-solid fa-bolt"></i>
+                <div>
+                  <div class="chart-card-value" id="avgTest">00:00:00</div>
+                  <div class="chart-card-label">Avg. per Test</div>
+                </div>
+              </div>
+              <div class="chart-card-metric">
+                <i class="fa-solid fa-percent"></i>
+                <div>
+                  <div class="chart-card-value" id="successRate">0%</div>
+                  <div class="chart-card-label">Success Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-box env-box">
+          <div class="chart-title"><i class="fa-solid fa-tv"></i> Environment Information</div>
+           <div class="env-row link">
+            <i class="fa-solid fa-server"></i>
+            <span class="label">Machine:</span>
+            <span>DESKTOP-123ABC</span>
+          </div>
+          <div class="env-row windows">
+            <i class="fa-brands fa-windows"></i>
+            <span class="label">OS:</span>
+            <span>Windows 11 (x64)</span>
+          </div>
+          <div class="env-row framework">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span class="label">Framework:</span>
+            <span>Selenium 4.18.1 | C# .NET 8.0</span>
+          </div>
+          <div class="env-row chrome">
+            <i class="fa-solid fa-earth-asia"></i>
+            <span class="label">Browser:</span>
+            <span>Chrome 123.0.6312.86</span>
+          </div>          
+          <div class="env-row screen">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+            <span class="label">Screen Resolution:</span>
+            <span>1920x1080</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-section">
+        <div class="tabledata-header">
+          <div class="tabledata-title"><i class="fa-solid fa-microscope"></i>All Modules</div>
+          <div class="tabledata-actions">
+            <div class="tabledata-search-box">
+              <input type="text" id="searchInput" placeholder="Search modules..." oninput="filterTable('moduleTableBody', 6, false)">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Module Name</th>
+              <th>Execution Time</th>
+              <th>Total Script</th>
+              <th>Total Success</th>
+              <th>Total Fail</th>
+              <th>Non-Verifying</th>
+            </tr>
+          </thead>
+          <tbody id="moduleTableBody"></tbody>
+        </table>
+
+      </div>
+
+    </div>
   </div>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/Chart.js"></script>
 </body>
+
 </html>
