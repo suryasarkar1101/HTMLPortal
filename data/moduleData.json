@@ -1,7 +1,7 @@
 [
   {
     "module": "TreeView",
-    "excution_time": 4883543,
+    "excution_time": 4883.543,
     "total_script": 112,
     "total_success": 96,
     "total_fail": 16,
@@ -11099,7 +11099,7 @@
   },
   {
     "module": "AdWeb_Audit",
-    "excution_time": 72781,
+    "excution_time": 72.781,
     "total_script": 3,
     "total_success": 2,
     "total_fail": 1,
@@ -11208,7 +11208,7 @@
   },
   {
     "module": "AdWeb_BusinessViews",
-    "excution_time": 321321,
+    "excution_time": 321.321,
     "total_script": 4,
     "total_success": 3,
     "total_fail": 1,
@@ -11266,7 +11266,7 @@
         "status": "failed",
         "duration": 47,
         "comment": "Test data test full comment TC_002",
-        "testBugRef": "24569",
+        "testBugRef": "24.569",
         "steps": [
           {
             "text": "Check the ablity to open TxHourTracking module in window mode",
@@ -11442,7 +11442,7 @@
   },
   {
     "module": "AdWeb_CoreModelsExport",
-    "excution_time": 261959,
+    "excution_time": 261.959,
     "total_script": 5,
     "total_success": 5,
     "total_fail": 0,
@@ -11464,7 +11464,7 @@
   },
   {
     "module": "AdWeb_CoreModelsImport",
-    "excution_time": 492654,
+    "excution_time": 492.654,
     "total_script": 3,
     "total_success": 3,
     "total_fail": 0,
@@ -11486,7 +11486,7 @@
   },
   {
     "module": "DLLUtils_AAC",
-    "excution_time": 13251,
+    "excution_time": 13.251,
     "total_script": 7,
     "total_success": 7,
     "total_fail": 0,
@@ -11508,7 +11508,7 @@
   },
   {
     "module": "DLLUtils_AAD",
-    "excution_time": 152794,
+    "excution_time": 152.794,
     "total_script": 3,
     "total_success": 2,
     "total_fail": 1,
